@@ -3,6 +3,12 @@
     
     section {
         padding: 2rem 0;
+
+        button {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            padding: .7rem 40px;
+        }
     }
 
     .hero {
@@ -21,12 +27,6 @@
                     white-space: nowrap;
                     font-size: max(55px, 6vw);
                 }
-
-                button {
-                    font-size: 1.1rem;
-                    margin-top: 1rem;
-                    padding: 1rem 48px;
-                }
             }
         }
 
@@ -37,6 +37,10 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         gap: 1rem;
+    }
+
+    .cards {
+        text-align: center;
     }
 
 }

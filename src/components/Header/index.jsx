@@ -14,16 +14,16 @@ export function Header() {
                     <a><h1 className={styles.logo}>Portifólio</h1></a>
                 </Link>
                 <nav>
-                    <Link href="">
+                    <Link href="/">
                         <a className={styles.active}>Home</a>
                     </Link>
-                    <Link href="">
+                    <Link href="/">
                         <a>Skills</a>
                     </Link>
-                    <Link href="">
+                    <Link href="/">
                         <a>Projetos</a>
                     </Link>
-                    <Link href="">
+                    <Link href="/">
                         <a>Contato</a>
                     </Link>
                 </nav>
