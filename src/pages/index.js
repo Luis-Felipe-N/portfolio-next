@@ -10,6 +10,10 @@ import styles from '../styles/pages/home.module.scss'
 export default function Home() {
 	const [ projects, setProjects ] = useState()
 
+	useEffect(() => {
+		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
+	}, [])
+
 	// useEffect(() => {
 	// 	const effectGetProjects = async () => {
 	// 		const data = await getProjects()
