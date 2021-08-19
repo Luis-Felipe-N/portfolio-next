@@ -1,0 +1,52 @@
+.homeContainer {
+    padding: 2rem calc(5% + 2rem);
+    
+    section {
+        padding: 2rem 0;
+    }
+
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        &_image {
+            padding: 0 2rem;
+            background-color: white;
+            box-shadow: 0 0 5px var(--color-900);
+            & + div {
+                width: 350px;
+
+                h1 {
+                    white-space: nowrap;
+                    font-size: max(55px, 6vw);
+                }
+
+                button {
+                    font-size: 1.1rem;
+                    margin-top: 1rem;
+                    padding: 1rem 48px;
+                }
+            }
+        }
+
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width:800px) {
+    .homeContainer {
+        .hero {
+            flex-direction: column-reverse;
+            gap: 3rem;
+            // align-items: unset;
+        }
+    }
+}
