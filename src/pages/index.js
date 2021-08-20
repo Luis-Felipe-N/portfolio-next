@@ -91,7 +91,7 @@ export default function Home() {
 							)
 						}
 					</div>
-					<button>Ver mais</button>
+					<button className={styles.btn_view_more}>Ver mais</button>
 				</section>
 			</main>
 		</>

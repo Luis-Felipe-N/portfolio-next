@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <footer className={styles.footerContainer}>
                 <div className={styles.techBuild}>
-                    <span>Tecnologias usadas:</span>
+                    <h2>Tecnologias usadas:</h2>
                     <ul>
                         <li>NextJS</li>
                         <li>SASS</li>
@@ -15,7 +15,7 @@ export default function Footer() {
                 </div>
 
                 <div>
-                    <span>Contato:</span>
+                    <h2>Contato:</h2>
                     <ul>
                         <li>+55 (63) 9 9235-1977</li>
                         <li>luisj2felipe09@gmail.com</li>
@@ -24,7 +24,16 @@ export default function Footer() {
 
                 <div className={styles.contact}>
 
-                    <span>{disponivel ? <span className={styles.disponivel}>Disponível</span> : <span className={styles.indisponivel}>Indisponível</span> } para projetos</span>
+                    <h2>
+                        <span className={styles.pulse}></span>
+                            {
+                            disponivel ? (
+                            <span className={styles.disponivel}>Disponível </span>
+                            ) : (
+                            <span className={styles.indisponivel}>Indisponível </span>
+                            ) }
+                         para projetos
+                        </h2>
                 </div>
         </footer>
     )

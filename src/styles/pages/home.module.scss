@@ -41,15 +41,15 @@
 
     .cards {
         margin-top: 3rem;
-        // text-align: center;
        .cardsContainer {
            gap: 2rem;
                 display: flex;
                 justify-content: space-evenly;
                 flex-wrap: wrap;
        }
-       button {
-           margin-top: 3rem;
+       .btn_view_more {
+        
+           margin: 3rem auto 0;
        }
     }
 
