@@ -39,59 +39,61 @@ export default function Home() {
 	}, [])
 
 	return (
-		<main className={styles.homeContainer}>
-			<section className={styles.hero}>
-				<div className={styles.hero_image}>
-					<Image 
-						src="/home.png"	
-						alt="Ilustração de um homem e figuras geometricas"
-						width={300}
-						height={330}
-						objectFit="contain"
-					/>
-				</div>
-				<div>
-					<h1>Luis Felipe</h1>
-					<p>Desenvolvedor Front-End</p>
-					<button>Download CV</button>
-				</div>
-			</section>
-			<section className={styles.skills}>
-					<Skill
-						image="/html.png"
-						name="HTML"
-					/>
-					<Skill
-						image="/css.png"
-						name="CSS"
-					/>
-					<Skill
-						image="/sass.svg"
-						name="SASS"
-					/>
-					<Skill
-						image="/js.png"
-						name="JavaScript"
-					/>
-					<Skill
-						image="/react.png"
-						name="ReactJs"
-					/>
-					<Skill
-						image="/next.png"
-						name="NextJs"
-					/>
-			</section>
-			<section className={styles.cards}>
-				<div className={styles.cardsContainer}>
-					{
-						projects && (
-							projects.map( project => <Card key={project.id} project={project} />)
-						)
-					}
-				</div>
-				<button>Ver mais</button>
-			</section>
-		</main>
+		<>
+			<main className={styles.homeContainer}>
+				<section className={styles.hero}>
+					<div className={styles.hero_image}>
+						<Image 
+							src="/home.png"	
+							alt="Ilustração de um homem e figuras geometricas"
+							width={300}
+							height={330}
+							objectFit="contain"
+						/>
+					</div>
+					<div>
+						<h1>Luis Felipe</h1>
+						<p>Desenvolvedor Front-End</p>
+						<button>Download CV</button>
+					</div>
+				</section>
+				<section className={styles.skills}>
+						<Skill
+							image="/html.png"
+							name="HTML"
+						/>
+						<Skill
+							image="/css.png"
+							name="CSS"
+						/>
+						<Skill
+							image="/sass.svg"
+							name="SASS"
+						/>
+						<Skill
+							image="/js.png"
+							name="JavaScript"
+						/>
+						<Skill
+							image="/react.png"
+							name="ReactJs"
+						/>
+						<Skill
+							image="/next.png"
+							name="NextJs"
+						/>
+				</section>
+				<section className={styles.cards}>
+					<div className={styles.cardsContainer}>
+						{
+							projects && (
+								projects.map( project => <Card key={project.id} project={project} />)
+							)
+						}
+					</div>
+					<button>Ver mais</button>
+				</section>
+			</main>
+		</>
   	)
 }

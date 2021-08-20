@@ -34,7 +34,7 @@
 
             a {
                 padding: .5rem .7rem;
-                background-color: var(--color-500);
+                background-color: var(--color-400);
                 color: white;
                 border-radius: 5px;
                 display: flex;
@@ -44,8 +44,8 @@
 
                 & + a {
                     background-color: transparent;
-                    box-shadow: 0 0 0 1px var(--color-500);
-                    color: var(--color-500);
+                    box-shadow: 0 0 0 1px var(--color-400);
+                    color: var(--color-400);
                 }
 
                 &:hover {
