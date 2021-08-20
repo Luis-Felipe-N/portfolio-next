@@ -14,21 +14,29 @@ export default function Home() {
 		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
 	}, [])
 
-	// useEffect(() => {
-	// 	const effectGetProjects = async () => {
-	// 		const data = await getProjects()
-	// 		const projectsParsed = data.map( ({id, project}) => project.map( item => {
-	// 			return {
-	// 				id: id,
-	// 				image: item.image
-	// 			}
-	// 		}))
-	// 		console.log(data, projectsParsed)
-	// 		setProjects(projectsParsed)
-	// 	}
+	useEffect(() => {
+		const effectGetProjects = async () => {
+			const data = await getProjects()
+			console.log(data)
+			const projectsParsed = data.map( project => {
+				return {
+						id: project.id,
+						code: project.code,
+						preview: project.preview,
+						createdAt: project.createdAt,
+						description: project.description,
+						title: project.title,
+						thumb: {
+							url: project.thumb.url
+						}
+						}
+			} )
+			console.log(projectsParsed)
+			setProjects(projectsParsed)
+		}
 
-	// 	effectGetProjects()
-	// }, [])
+		effectGetProjects()
+	}, [])
 
 	return (
 		<main className={styles.homeContainer}>
@@ -50,25 +58,37 @@ export default function Home() {
 			</section>
 			<section className={styles.skills}>
 					<Skill
-						image="/js.png"
-						name="JavaScript"
-					/>
-					<Skill
 						image="/html.png"
 						name="HTML"
+					/>
+					<Skill
+						image="/css.png"
+						name="CSS"
+					/>
+					<Skill
+						image="/sass.svg"
+						name="SASS"
+					/>
+					<Skill
+						image="/js.png"
+						name="JavaScript"
 					/>
 					<Skill
 						image="/react.png"
 						name="ReactJs"
 					/>
+					<Skill
+						image="/next.png"
+						name="NextJs"
+					/>
 			</section>
 			<section className={styles.cards}>
-				<div>
-					{/* {
+				<div className={styles.cardsContainer}>
+					{
 						projects && (
 							projects.map( project => <Card project={project} />)
 						)
-					} */}
+					}
 				</div>
 				<button>Ver mais</button>
 			</section>

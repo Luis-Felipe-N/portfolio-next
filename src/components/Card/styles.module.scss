@@ -1,6 +1,58 @@
 .cardContainer {
-
+    max-width: 17.5rem;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--color-900);
+    
     .info {
+        // min-height: 100%;
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        
+        h2 {
+            color: var(--color-150);
+        }
+
+        .description {
+            font-size: .95rem;
+            color: var(--color-200);
+            margin: .3rem 0;
+
+
+            a {
+                text-decoration: underline;
+                font-weight: 500;
+                color: var(--color-200);
+            }
+        }
+
+        .btns {
+            display: flex;
+            gap: 1rem;
+
+            a {
+                padding: .5rem .7rem;
+                background-color: var(--color-500);
+                color: white;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                gap: .2rem;
+                transition: .2s;
+
+                & + a {
+                    background-color: transparent;
+                    box-shadow: 0 0 0 1px var(--color-500);
+                    color: var(--color-500);
+                }
+
+                &:hover {
+                    transform: scale(1.02);
+                }
+            }
+        }
     }
 }

@@ -25,49 +25,27 @@ const fetchCMSApi = async (query, { variables } = {}) => {
 
 
 export async function getProjects() {
-    console.log('vsds')
-
-    const data = await fetchCMSApi(`
+  
+  const data = await fetchCMSApi(`
     {
-        allProjects {
-          id
-          _firstPublishedAt
-          project {
-            ... on CodeRecord {
-              id
-              linDoRepositorio {
-                value
-              }
-              _modelApiKey
-            }
-            ... on DescriptionRecord {
-              id
-              descricao
-              _modelApiKey
-            }
-            ... on ImageRecord {
-              id
-              _modelApiKey
-              imagem {
-                alt
-                url
-                title
-              }
-            }
-            ... on LinguageRecord {
-              id
-              linguagem
-              _modelApiKey
-            }
-            ... on NameRecord {
-              id
-              _modelApiKey
-              nomeDoProjeto
-            }
-          }
+      allProjects {
+        id
+        _firstPublishedAt
+        title
+        thumb {
+          alt
+          url
+          title
         }
-      }      
+        linguagens
+        preview
+        description
+        code
+        createdAt
+      }
+    }  
     `)
 
+    console.log(data)
     return data.allProjects
 }

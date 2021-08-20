@@ -40,7 +40,17 @@
     }
 
     .cards {
-        text-align: center;
+        margin-top: 3rem;
+        // text-align: center;
+       .cardsContainer {
+           gap: 2rem;
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+       }
+       button {
+           margin-top: 3rem;
+       }
     }
 
 }
@@ -50,7 +60,6 @@
         .hero {
             flex-direction: column-reverse;
             gap: 3rem;
-            // align-items: unset;
         }
     }
 }

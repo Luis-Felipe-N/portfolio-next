@@ -9,6 +9,10 @@
     font-size: .875rem;
     width: 120px;
 
+    &:hover {
+        box-shadow: 0 0 20px 1px var(--color-900),  0 0 1px 1px rgba(255, 255, 255, 0.466);
+    }
+
     h4 {
         margin-top: .4rem;
     }
