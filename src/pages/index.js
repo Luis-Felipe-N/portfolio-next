@@ -86,7 +86,7 @@ export default function Home() {
 				<div className={styles.cardsContainer}>
 					{
 						projects && (
-							projects.map( project => <Card project={project} />)
+							projects.map( project => <Card key={project.id} project={project} />)
 						)
 					}
 				</div>
