@@ -17,7 +17,9 @@ export function Card({project}) {
             />
             <div className={styles.info}>
                 <h2>{project.title}</h2>
+
                 <div className={styles.description} dangerouslySetInnerHTML={{ __html: project.description}} />
+                
                 <div className={styles.btns}>
                     <Link href={project.preview}>
                         <a>Preview</a>

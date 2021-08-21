@@ -2,6 +2,9 @@
     height: 4rem;
     border-bottom: 1px solid var(--color-400);
     background-color: var(--background);
+    position: sticky;
+    top: 0;
+    z-index: 2;
 
     div {
         margin: 0 auto;
@@ -27,6 +30,9 @@
                 transition: .2s;
                 display: inline-block;
                 position: relative;
+                display: flex;
+                align-items: center;
+                gap: .2rem;
                 
                 &:hover {
                     color: var(--color-300);
@@ -36,7 +42,7 @@
                     color: var(--color-300);
                     font-weight: bold;
                 }
-
+    
                 &.active::after {
                         content: '';
                         display: block;
@@ -65,9 +71,6 @@
 
 @media (max-width: 800px) {
     .headerContainer {
-        position: sticky;
-        top: 0;
-        z-index: 2;
         div {
             nav {
                 background-color: var(--color-900);

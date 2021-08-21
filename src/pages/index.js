@@ -1,45 +1,25 @@
+import Router from 'next/router'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Card } from '../components/Card'
 import { Skill } from '../components/Skills'
 import { getProjects } from '../lib/datoCMS'
-
 import styles from '../styles/pages/home.module.scss'
+import Head from 'next/head'
 
-
-export default function Home() {
-	const [ projects, setProjects ] = useState()
+export default function Home({projects}) {
 
 	useEffect(() => {
 		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
 	}, [])
 
-	useEffect(() => {
-		const effectGetProjects = async () => {
-			const data = await getProjects()
-			console.log(data)
-			const projectsParsed = data.map( project => {
-				return {
-						id: project.id,
-						code: project.code,
-						preview: project.preview,
-						createdAt: project.createdAt,
-						description: project.description,
-						title: project.title,
-						thumb: {
-							url: project.thumb.url
-						}
-						}
-			} )
-			console.log(projectsParsed)
-			setProjects(projectsParsed)
-		}
-
-		effectGetProjects()
-	}, [])
-
 	return (
 		<>
+			<Head>
+				<title>
+					Luis | Home
+				</title>
+			</Head>
 			<main className={styles.homeContainer}>
 				<section className={styles.hero}>
 					<div className={styles.hero_image}>
@@ -91,9 +71,33 @@ export default function Home() {
 							)
 						}
 					</div>
-					<button className={styles.btn_view_more}>Ver mais</button>
+					<button onClick={() => Router.push('/projetos')} className={styles.btn_view_more}>Ver mais</button>
 				</section>
 			</main>
 		</>
   	)
+}
+
+
+export const getStaticProps = async () => {
+    const data = await getProjects()
+    const projects = data.map( project => {
+        return {
+            id: project.id,
+            code: project.code,
+            preview: project.preview,
+            createdAt: project.createdAt,
+            description: project.description,
+            title: project.title,
+            thumb: {
+                url: project.thumb.url
+            }
+        }
+    })
+
+    return {
+        props: {
+            projects
+        }
+    }
 }

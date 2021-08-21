@@ -2,8 +2,9 @@ import Link from 'next/link'
 
 import styles from './styles.module.scss'
 
-import { BiSun, BiMoon, BiFolder, BiFolderOpen } from 'react-icons/bi'
+import { BiSun, BiMoon, BiFolder, BiFolderOpen, BiRightArrowAlt } from 'react-icons/bi'
 import { useState } from 'react'
+import NavLink from '../NavLInk'
 
 export function Header() {
     const [ ligthMode, setLigthMode ] = useState(false)
@@ -16,18 +17,12 @@ export function Header() {
                     <a><h1 className={styles.logo}>Portifólio</h1></a>
                 </Link>
                 <nav className={openMenu ? styles.active : ''}>
-                    <Link href="/">
-                        <a className={styles.active}>Home</a>
-                    </Link>
-                    <Link href="/">
-                        <a>Skills</a>
-                    </Link>
-                    <Link href="/">
-                        <a>Projetos</a>
-                    </Link>
-                    <Link href="/">
-                        <a>Contato</a>
-                    </Link>
+                    <NavLink to="/">
+                        Home
+                    </NavLink>
+                    <NavLink to="/projetos">
+                        Projetos <BiRightArrowAlt />
+                    </NavLink>
                 </nav>
                 <button
                     className={styles.ligth_mode} 

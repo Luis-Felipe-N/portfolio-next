@@ -1,0 +1,17 @@
+import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
+import styles from '../Header/styles.module.scss'
+
+export default function NavLink({to, children}) {
+
+    const {asPath} = useRouter()
+    const className = asPath == to ? styles.active : ''
+    
+    return (
+        <Link href={to}>
+            <a className={className}>
+                {children}
+            </a>
+        </Link>
+    )
+}
