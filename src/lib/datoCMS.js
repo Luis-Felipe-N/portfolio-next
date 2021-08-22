@@ -24,6 +24,32 @@ const fetchCMSApi = async (query, { variables } = {}) => {
 }
 
 
+export async function getHomeProjects() {
+  const data = await fetchCMSApi(`
+  query MyQuery {
+    allHomeProjects {
+      id
+          _firstPublishedAt
+          title
+          thumb {
+            alt
+            url
+            title
+          }
+          linguage
+          preview
+          description
+          code
+          createdAt
+    }
+  }
+  
+  `)
+  console.log(data)
+  return data.allHomeProjects
+}
+
+
 export async function getProjects() {
   
   const data = await fetchCMSApi(`

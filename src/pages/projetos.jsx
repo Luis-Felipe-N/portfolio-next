@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useEffect } from 'react'
 import { Card } from "../components/Card"
 import { getProjects } from "../lib/datoCMS"
 
@@ -6,6 +7,14 @@ import styles from '../styles/pages/projects.module.scss'
 
 
 export default function Projetos({projects}) {
+
+    useEffect(() => {
+        for (let index = 0; index <= 4; index++) {
+            document.body.classList.remove('theme' + index)
+            
+        }
+		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
+	}, [])
 
     return (
         <>

@@ -3,13 +3,16 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { Card } from '../components/Card'
 import { Skill } from '../components/Skills'
-import { getProjects } from '../lib/datoCMS'
+import { getHomeProjects, getProjects } from '../lib/datoCMS'
 import styles from '../styles/pages/home.module.scss'
 import Head from 'next/head'
 
 export default function Home({projects}) {
 
 	useEffect(() => {
+		for (let index = 0; index <= 4; index++) {
+            document.body.classList.remove('theme' + index)     
+        }
 		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
 	}, [])
 
@@ -80,7 +83,7 @@ export default function Home({projects}) {
 
 
 export const getStaticProps = async () => {
-    const data = await getProjects()
+    const data = await getHomeProjects()
     const projects = data.map( project => {
         return {
             id: project.id,
