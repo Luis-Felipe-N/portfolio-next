@@ -14,7 +14,7 @@
     .hero {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         gap: 2rem;
         &_image {
             padding: 0 2rem;
