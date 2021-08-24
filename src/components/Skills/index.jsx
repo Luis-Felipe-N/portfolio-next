@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 
 export function Skill({image, name}) {
     return (
-        <article draggable="false" className={styles.skillContainer}>
+        <article className={styles.skillContainer}>
             <Image
                 src={image}
                 alt={name}

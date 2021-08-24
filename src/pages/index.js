@@ -3,18 +3,21 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { Card } from '../components/Card'
 import { Skill } from '../components/Skills'
-import { getHomeProjects, getProjects } from '../lib/datoCMS'
+import { getHomeProjects, getSkills } from '../lib/datoCMS'
 import styles from '../styles/pages/home.module.scss'
 import Head from 'next/head'
 
-export default function Home({projects}) {
+export default function Home({projects, skills}) {
+
 
 	useEffect(() => {
 		for (let index = 0; index <= 4; index++) {
             document.body.classList.remove('theme' + index)     
         }
 		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
+		
 	}, [])
+
 
 	return (
 		<>
@@ -41,30 +44,9 @@ export default function Home({projects}) {
 					</div>
 				</section>
 				<section className={styles.skills}>
-						<Skill
-							image="/html.png"
-							name="HTML"
-						/>
-						<Skill
-							image="/css.png"
-							name="CSS"
-						/>
-						<Skill
-							image="/sass.svg"
-							name="SASS"
-						/>
-						<Skill
-							image="/js.png"
-							name="JavaScript"
-						/>
-						<Skill
-							image="/react.png"
-							name="ReactJs"
-						/>
-						<Skill
-							image="/next.png"
-							name="NextJs"
-						/>
+					{
+						skills && skills.map( skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+					}
 				</section>
 				<section className={styles.cards}>
 					<div className={styles.cardsContainer}>
@@ -83,8 +65,19 @@ export default function Home({projects}) {
 
 
 export const getStaticProps = async () => {
-    const data = await getHomeProjects()
-    const projects = data.map( project => {
+	
+	const parsedSkills = await getSkills()
+	const skills = parsedSkills.map( skill => {
+		return {
+			id: skill.id,
+			name: skill.name,
+			image: skill.image.url
+		}
+	})
+
+
+    const parsedProjects = await getHomeProjects()
+    const projects = parsedProjects.map( project => {
         return {
             id: project.id,
             code: project.code,
@@ -98,10 +91,12 @@ export const getStaticProps = async () => {
         }
     })
 
+
     return {
         props: {
-            projects
+            projects,
+			skills
         },
-		revalidate: 10
+		revalidate: 2
     }
 }

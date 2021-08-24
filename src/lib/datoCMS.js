@@ -45,7 +45,7 @@ export async function getHomeProjects() {
   }
   
   `)
-  console.log(data)
+
   return data.allHomeProjects
 }
 
@@ -72,6 +72,19 @@ export async function getProjects() {
     }  
     `)
 
-    console.log(data)
     return data.allProjects
+}
+
+export async function getSkills() {
+  const data = await fetchCMSApi(`{
+    allSkills {
+      id
+      name
+      image {
+        url
+      }
+    }
+  }`)
+  console.log(data)
+  return data.allSkills
 }
