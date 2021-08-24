@@ -38,7 +38,7 @@ export function Header() {
                     <a><h1 className={styles.logo}>Portifólio</h1></a>
                 </Link>
                 <nav className={openMenu ? styles.active : ''}>
-                    <NavLink to="">
+                    <NavLink to="/">
                         Home
                     </NavLink>
                     <NavLink to="/projetos">
