@@ -57,12 +57,6 @@
             }
         }
 
-        .ligth_mode {
-            padding: 1rem;
-            background-color: transparent;
-            color: var(--color-400);
-        }
-
         .btn_mobile {
             display: none;
         }
@@ -96,10 +90,6 @@
 
             nav.active {
                 right: 0;
-            }
-
-            .ligth_mode {
-                margin-left: auto;
             }
 
             .btn_mobile {
