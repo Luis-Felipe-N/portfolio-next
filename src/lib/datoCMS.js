@@ -85,6 +85,6 @@ export async function getSkills() {
       }
     }
   }`)
-  console.log(data)
+  
   return data.allSkills
 }

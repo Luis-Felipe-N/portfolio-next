@@ -1,0 +1,17 @@
+.conatinerPageNotFound {
+    padding: 2rem 0;
+    height: calc(4rem) -100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 450px;
+
+    a {
+        color: var(--color-200);
+        font-weight: 500;
+        text-decoration: underline;
+    }
+}
+

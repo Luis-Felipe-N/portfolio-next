@@ -5,7 +5,6 @@ import styles from '../Header/styles.module.scss'
 export default function NavLink({to, children}) {
 
     const {asPath} = useRouter()
-    console.log(asPath)
     const className = asPath == to ? styles.active : ''
     
     return (

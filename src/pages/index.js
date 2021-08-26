@@ -1,6 +1,6 @@
 import Router from 'next/router'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { createElement, useEffect } from 'react'
 import { Card } from '../components/Card'
 import { Skill } from '../components/Skills'
 import { getHomeProjects, getSkills } from '../lib/datoCMS'
@@ -17,6 +17,7 @@ export default function Home({projects, skills}) {
 		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
 		
 	}, [])
+
 
 
 	return (
@@ -40,7 +41,7 @@ export default function Home({projects, skills}) {
 					<div>
 						<h1>Luis Felipe</h1>
 						<p>Desenvolvedor Front-End</p>
-						<button>Download CV</button>
+						<a href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Download CV</a>
 					</div>
 				</section>
 				<section className={styles.skills}>

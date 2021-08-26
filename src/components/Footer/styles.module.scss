@@ -28,6 +28,17 @@
         }
     }
 
+    .redesSocias {
+        display: flex;
+
+        a {
+            transition: .2s;
+            &:hover {
+                color: var(--color-400);
+            }
+        }
+    }
+
     .contact {
         span, h2 {
             font-size: 1rem;
@@ -65,7 +76,6 @@
     .footerContainer {
         gap: 2rem;
         grid-template-columns: repeat(3, 1fr);
-        // grid-template-rows: repeat(2 2fr);/
     }
 
     .contact {
@@ -78,16 +88,14 @@
     .footerContainer {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    // grid-template-rows: repeat(2 2fr);
+
 }
 
 @media (max-width: 540px) {
     .footerContainer {
         grid-template-columns: repeat(1, 1fr);
     }
-    
-    // grid-template-rows: repeat(2 2fr);
+
 }
 
 
