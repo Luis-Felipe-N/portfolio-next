@@ -18,7 +18,7 @@ export default function PageNotFund() {
             <Image 
                 src='/among.png'
                 width={400}
-                // layout="fill"
+                alt="Pagina não encontrada"
                 objectFit="contain"
                 height={400}
                 
