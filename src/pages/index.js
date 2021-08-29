@@ -1,6 +1,5 @@
 import Router from 'next/router'
-import Image from 'next/image'
-import { createElement, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Card } from '../components/Card'
 import { Skill } from '../components/Skills'
 import { getHomeProjects, getSkills } from '../lib/datoCMS'
@@ -36,15 +35,6 @@ export default function Home({projects, skills}) {
 						<a href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Download CV</a>
 					</div>
 
-					{/* <div className={styles.hero_image}>
-						<Image 
-							src="/home.png"	
-							alt="Ilustração de um homem e figuras geometricas"
-							width={300}
-							height={330}
-							objectFit="contain"
-						/>
-					</div> */}
 				</section>
 				<section className={styles.skills}>
 					{
