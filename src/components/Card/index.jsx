@@ -2,7 +2,7 @@ import styles from './styles.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import {BiCodeAlt} from 'react-icons/bi'
+import {BiCodeAlt, BiLink} from 'react-icons/bi'
 
 export function Card({project}) {
     
@@ -22,7 +22,7 @@ export function Card({project}) {
                 
                 <div className={styles.btns}>
                     <Link href={project.preview}>
-                        <a target="_blank" >Preview</a>
+                        <a target="_blank" >Preview <BiLink /></a>
                     </Link>
                     <Link href={project.code}>
                         <a target="_blank">Code <BiCodeAlt /></a>

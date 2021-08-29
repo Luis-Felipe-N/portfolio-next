@@ -29,7 +29,14 @@ export default function Home({projects, skills}) {
 			</Head>
 			<main className={styles.homeContainer}>
 				<section className={styles.hero}>
-					<div className={styles.hero_image}>
+					
+					<div>
+						<h1>Luis Felipe</h1>
+						<p>Desenvolvedor Front-End</p>
+						<a href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Download CV</a>
+					</div>
+
+					{/* <div className={styles.hero_image}>
 						<Image 
 							src="/home.png"	
 							alt="Ilustração de um homem e figuras geometricas"
@@ -37,12 +44,7 @@ export default function Home({projects, skills}) {
 							height={330}
 							objectFit="contain"
 						/>
-					</div>
-					<div>
-						<h1>Luis Felipe</h1>
-						<p>Desenvolvedor Front-End</p>
-						<a href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Download CV</a>
-					</div>
+					</div> */}
 				</section>
 				<section className={styles.skills}>
 					{

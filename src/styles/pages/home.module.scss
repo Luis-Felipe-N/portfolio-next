@@ -1,5 +1,7 @@
 .homeContainer {
-    padding: 2rem calc(5% + 2rem);
+    max-width: 1050px;
+    margin: auto;
+    padding: 2rem 5%;
     
     section {
         padding: 2rem 0;
@@ -12,25 +14,20 @@
     }
 
     .hero {
+        margin: 2rem 0;
         display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+        align-items: flex-start;
+        justify-content: space-between;
         gap: 2rem;
-        &_image {
-            border-radius: 5px;
-            padding: 0 2rem;
-            background-color: white;
-            box-shadow: 0 0 5px var(--color-900);
-            & + div {
-                width: 350px;
 
-                h1 {
-                    white-space: nowrap;
-                    font-size: max(55px, 6vw);
-                }
+        div {
+
+            h1 {
+                white-space: nowrap;
+                font-size: 5rem;
             }
         }
-
+        
         a { 
             margin-top: 1rem !important;
             display: inline-block;
@@ -56,7 +53,7 @@
     .skills {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-between;
         gap: 1rem;
     }
 
@@ -66,9 +63,10 @@
         flex-direction: column;
         align-items: center;
         .cardsContainer {
+            width: 100%;
             gap: 2rem;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             flex-wrap: wrap;
         }
        .btn_view_more {
@@ -81,6 +79,7 @@
 .ligth_mode {
     .homeContainer {
         .hero {
+            align-items: flex-start;
             &_image {
                 background-color: aquamarine !important;
             }
@@ -93,6 +92,12 @@
         .hero {
             flex-direction: column-reverse;
             gap: 3rem;
+        }
+
+        .cards {
+            .cardsContainer {
+                justify-content: center;
+            }
         }
     }
 }
