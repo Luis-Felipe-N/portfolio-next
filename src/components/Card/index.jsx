@@ -22,10 +22,10 @@ export function Card({project}) {
                 
                 <div className={styles.btns}>
                     <Link href={project.preview}>
-                        <a target="_blank" >Preview <BiLink /></a>
+                        <a target="_blank" rel="noreferrer" >Preview <BiLink /></a>
                     </Link>
                     <Link href={project.code}>
-                        <a target="_blank">Code <BiCodeAlt /></a>
+                        <a target="_blank" rel="noreferrer">Code <BiCodeAlt /></a>
                     </Link>
                 </div>
             </div>

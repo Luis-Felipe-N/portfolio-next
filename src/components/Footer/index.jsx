@@ -30,17 +30,17 @@ export default function Footer() {
                     <h2>Redes Socias</h2>
                     <ul className={styles.redesSocias}>
                         <li>
-                            <a target="_blank" href="https://twitter.com/luis_ponto_py">
+                            <a target="_blank" rel="noreferrer" href="https://twitter.com/luis_ponto_py">
                                 <FaTwitter size={'1.5rem'}/>
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/luis-felipe-nunes-de-carvalho-02055b207/">
+                            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/luis-felipe-nunes-de-carvalho-02055b207/">
                                 <FaLinkedin size={'1.5rem'}/>
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" href="https://www.instagram.com/luis_felipenc17/">
+                            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/luis_felipenc17/">
                                 <FaInstagram size={'1.5rem'}/>
                             </a>
                         </li>
