@@ -48,7 +48,8 @@ export const getStaticProps = async () => {
             title: project.title,
             thumb: {
                 url: project.thumb.url
-            }
+            },
+            languages: project.languages
         }
     })
 

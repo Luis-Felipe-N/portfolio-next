@@ -5,7 +5,7 @@ import Link from 'next/link'
 import {BiCodeAlt, BiLink} from 'react-icons/bi'
 
 export function Card({project}) {
-    
+    console.log(project)
     return (
         <article className={styles.cardContainer}>
             <Image 
@@ -27,6 +27,9 @@ export function Card({project}) {
                     <Link href={project.code}>
                         <a target="_blank" rel="noreferrer">Code <BiCodeAlt /></a>
                     </Link>
+                </div>
+                <div className={styles.languages}>
+                    {project.languages}
                 </div>
             </div>
         </article>

@@ -36,7 +36,7 @@ export async function getHomeProjects() {
             url
             title
           }
-          linguage
+          languages
           preview
           description
           code
@@ -63,7 +63,7 @@ export async function getProjects() {
           url
           title
         }
-        linguagens
+        languages
         preview
         description
         code

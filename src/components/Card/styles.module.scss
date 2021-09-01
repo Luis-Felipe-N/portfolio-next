@@ -9,6 +9,7 @@
     }
     
     .info {
+        min-height: 50%;
         padding: .1rem .7rem .7rem ;
         display: flex;
         flex-direction: column;
@@ -71,6 +72,11 @@
                 }
 
             }
+        }
+
+        .languages {
+            margin-top: 1rem;
+            color: var(--color-200);
         }
     }
 }
