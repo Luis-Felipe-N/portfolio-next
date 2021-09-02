@@ -3,11 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import {BiCodeAlt, BiLink} from 'react-icons/bi'
+import AnimationUp from '../AnimationUp'
 
 export function Card({project}) {
     console.log(project)
     return (
-        <article className={styles.cardContainer}>
+        <AnimationUp>
+            <article className={styles.cardContainer}>
             <Image 
                 src={project.thumb.url}
                 alt={project.title}
@@ -33,5 +35,6 @@ export function Card({project}) {
                 </div>
             </div>
         </article>
+        </AnimationUp>
     )
 }

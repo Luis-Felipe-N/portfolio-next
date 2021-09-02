@@ -5,6 +5,7 @@ import { Skill } from '../components/Skills'
 import { getHomeProjects, getSkills } from '../lib/datoCMS'
 import styles from '../styles/pages/home.module.scss'
 import Head from 'next/head'
+import AnimationUp from '../components/AnimationUp'
 
 export default function Home({projects, skills}) {
 
@@ -27,20 +28,23 @@ export default function Home({projects, skills}) {
 				</title>
 			</Head>
 			<main className={styles.homeContainer}>
-				<section className={styles.hero}>
-					
-					<div>
-						<h1>Luis Felipe</h1>
-						<p>Desenvolvedor Front-End</p>
-						<a href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Download CV</a>
-					</div>
+				<AnimationUp>
+					<section className={styles.hero}>
+						
+						<div>
+							<h1>Luis Felipe</h1>
+							<p>Desenvolvedor Front-End</p>
+							<a href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Download CV</a>
+						</div>
 
-				</section>
+					</section>
+				</AnimationUp>
 				<section className={styles.skills}>
 					{
 						skills && skills.map( skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
 					}
 				</section>
+				<AnimationUp>
 				<section className={styles.cards}>
 					<div className={styles.cardsContainer}>
 						{
@@ -51,6 +55,7 @@ export default function Home({projects, skills}) {
 					</div>
 					<button onClick={() => Router.push('/projetos')} className={styles.btn_view_more}>Ver mais</button>
 				</section>
+				</AnimationUp>
 			</main>
 		</>
   	)

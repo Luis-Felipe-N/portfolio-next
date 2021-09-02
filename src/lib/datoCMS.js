@@ -54,7 +54,7 @@ export async function getProjects() {
   
   const data = await fetchCMSApi(`
     {
-      allProjects {
+      allProjects(orderBy: _createdAt_DESC) {
         id
         _firstPublishedAt
         title

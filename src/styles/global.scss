@@ -166,3 +166,18 @@ a {
     color: var(--background);
     background-color: var(--color-200);
 }
+
+.animaUp {
+    animation: animaToUp forwards .5s;
+}
+
+@keyframes animaToUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
