@@ -5,7 +5,7 @@ export default function AnimationUp({children}) {
 
     const animaScroll = () => {
        if (containerAnimation.current) {
-            const viewPort = window.innerHeight * 0.8
+            const viewPort = window.innerHeight * 0.85 
             const scrollTop = containerAnimation.current.getBoundingClientRect().top
             const isContainerVisible = scrollTop - viewPort < 0
 

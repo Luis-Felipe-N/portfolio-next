@@ -6,7 +6,7 @@ const fetchCMSApi = async (query, { variables } = {}) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            authorization: 'ccad484e4ab374320ac848e0418c2b'
+            authorization: process.env.NEXT_PUBLIC_API_KEY
         },
         body:  JSON.stringify({
             query: query,
