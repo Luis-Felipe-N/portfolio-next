@@ -6,7 +6,7 @@ import {BiCodeAlt, BiLink} from 'react-icons/bi'
 import AnimationUp from '../AnimationUp'
 
 export function Card({project}) {
-    console.log(project)
+
     return (
         <AnimationUp>
             <article className={styles.cardContainer}>
