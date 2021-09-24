@@ -3,12 +3,26 @@ import Link from 'next/link'
 import styles from './styles.module.scss'
 
 import { BiFolder, BiFolderOpen, BiRightArrowAlt } from 'react-icons/bi'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import NavLink from '../NavLInk'
 import { ButtonLigthMode } from '../ButtonLigthMode'
 
 export function Header() {
     const [ openMenu, setOpenMenu ] = useState()
+    const menuRef = useRef()
+
+    useEffect(() => {
+        if ( openMenu ) {
+            document.addEventListener('click', handleClickOutSideMenu)
+            
+            function handleClickOutSideMenu({target}) {
+                if(!target.contains(menuRef.current)) {
+                    setOpenMenu(!openMenu)
+                    document.removeEventListener('click', handleClickOutSideMenu)
+                }
+            }
+        }
+    }, [openMenu])
 
     return (
         <header className={styles.headerContainer}>
@@ -16,7 +30,7 @@ export function Header() {
                 <Link href="/">
                     <a><h1 className={styles.logo}>Portifólio</h1></a>
                 </Link>
-                <nav className={openMenu ? styles.active : ''}>
+                <nav ref={menuRef} className={openMenu ? styles.active : ''}>
                     <NavLink className={styles.active} to="/">
                         Home
                     </NavLink>
