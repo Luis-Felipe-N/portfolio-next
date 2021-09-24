@@ -34,7 +34,7 @@ export default function Home({projects, skills}) {
 						<div>
 							<h1>Luis Felipe</h1>
 							<p>Desenvolvedor Front-End <br/> Cursando Ciências da Computação na <a className={styles.link} href="https://ww2.uft.edu.br/">UFT</a></p>
-							<a className={styles.download} href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Download CV</a>
+							<a className={styles.download} href="/assets/Curriculo-Luis.pdf" download="Curriculo-Luis">Currículo</a>
 						</div>
 
 					</section>
