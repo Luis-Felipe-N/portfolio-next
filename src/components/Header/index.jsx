@@ -28,7 +28,11 @@ export function Header() {
         <header className={styles.headerContainer}>
             <div>
                 <Link href="/">
-                    <a><h1 className={styles.logo}>Portifólio</h1></a>
+                    <a>
+                        <h1 className={styles.logo}>
+                            <img src="/logo.png" alt="Logo" />
+                        </h1>
+                    </a>
                 </Link>
                 <nav ref={menuRef} className={openMenu ? styles.active : ''}>
                     <NavLink className={styles.active} to="/">

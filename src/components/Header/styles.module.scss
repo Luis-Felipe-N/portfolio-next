@@ -17,6 +17,12 @@
         align-items: center;
         justify-content: space-between;
 
+        .logo {
+            img {
+                width: 130px;
+            }
+        }
+
         nav {
             margin-left: 3rem;
             flex: 1;
