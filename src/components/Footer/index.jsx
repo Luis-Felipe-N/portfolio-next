@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './styles.module.scss'
 
-import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 export default function Footer() {
     const [ disponivel, setDisponivel ] = useState(true)
@@ -30,8 +30,8 @@ export default function Footer() {
                     <h2>Redes Socias</h2>
                     <ul className={styles.redesSocias}>
                         <li>
-                            <a target="_blank" rel="noreferrer" href="https://twitter.com/luis_ponto_py">
-                                <FaTwitter size={'1.5rem'}/>
+                            <a target="_blank" rel="noreferrer" href="https://github.com/Luis-Felipe-N">
+                                <FaGithub size={'1.5rem'}/>
                             </a>
                         </li>
                         <li>
