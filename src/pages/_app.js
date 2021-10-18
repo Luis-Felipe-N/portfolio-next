@@ -49,15 +49,15 @@ function MyApp({ Component, pageProps }) {
             images: [
             {
                 url: '/perfil.jpeg',
-                width: 800,
-                height: 600,
+                width: 400,
+                height: 400,
                 alt: 'Imagem de perfil',
                 type: 'image/jpeg',
             },
             {
                 url: '/perfil.jpeg',
-                width: 900,
-                height: 800,
+                width: 400,
+                height: 400,
                 alt: 'Imagem de perfil',
                 type: 'image/jpeg',
             },
