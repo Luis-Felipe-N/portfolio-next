@@ -3,4 +3,30 @@
     background-color: transparent;
     color: var(--color-400);
     margin-left: auto;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+
+        width: 0;
+        height: 0;
+        background-color: var(--color-900);
+
+        transition: .2s;
+        display: block;
+    }
+    &:hover, &:focus {
+        outline: 0;
+        &::after {
+            width: 50px;
+            height: 50px;
+        }
+    }
 }
