@@ -15,6 +15,7 @@ export function Card({project}) {
             <Image 
                 src={project.thumb.url}
                 alt={project.title}
+                title={project.title}
                 width={300}
                 height={200}
                 objectFit="cover"
