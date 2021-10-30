@@ -3,7 +3,7 @@ import { BiSun, BiMoon } from 'react-icons/bi'
 
 import styles from './styles.module.scss'
 
-export function ButtonLigthMode() {
+export function ButtonLigthMode({...props}) {
     const [ ligthMode, setLigthMode ] = useState(false)
 
     useEffect(() => {
@@ -33,6 +33,7 @@ export function ButtonLigthMode() {
         {
             ligthMode  ? (
                 <button
+                    {...props}
                     className={styles.ligth_mode}
                     onClick={handleSetDarkMode}
                 >
@@ -40,6 +41,7 @@ export function ButtonLigthMode() {
                 </button>
             ) : (
                 <button
+                    {...props}
                     className={styles.ligth_mode}
                     onClick={ handleSetLigthMode}
                 >

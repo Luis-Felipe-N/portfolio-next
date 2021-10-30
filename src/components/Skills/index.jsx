@@ -7,6 +7,7 @@ export function Skill({image, name}) {
             <Image
                 src={image}
                 alt={name}
+                title={name}
                 width={70}
                 height={70}
                 objectFit="contain"

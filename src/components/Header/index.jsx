@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import styles from './styles.module.scss'
 
@@ -30,7 +31,12 @@ export function Header() {
                 <Link href="/">
                     <a>
                         <h1 className={styles.logo}>
-                            <img src="/logo.png" alt="Logo" />
+                            <img 
+                                alt="Texto colorido escrito Luis Felipe"
+                                title="Luis Felipe"
+                                aria-label="Link pra ir para home"
+                                src="/logo.png"
+                            />
                         </h1>
                     </a>
                 </Link>
@@ -43,9 +49,10 @@ export function Header() {
                     </NavLink>
                 </nav>
 
-                <ButtonLigthMode />
+                <ButtonLigthMode aria-label="Botão de Dark mode" />
 
                 <button 
+                    aria-label="Botão de abrir menu"
                     onClick={() => setOpenMenu(!openMenu)}
                     className={styles.btn_mobile}>
                     {

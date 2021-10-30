@@ -27,10 +27,10 @@ export function Card({project}) {
                 
                 <div className={styles.btns}>
                     <Link href={project.preview}>
-                        <a target="_blank" rel="noreferrer" >Preview <BiLink /></a>
+                        <a aria-label="Link do site do projeto" target="_blank" rel="noreferrer" >Preview <BiLink /></a>
                     </Link>
                     <Link href={project.code}>
-                        <a target="_blank" rel="noreferrer">Code <BiCodeAlt /></a>
+                        <a aria-label="Link do github do projeto" target="_blank" rel="noreferrer">Code <BiCodeAlt /></a>
                     </Link>
                 </div>
                 <div className={styles.languages}>
