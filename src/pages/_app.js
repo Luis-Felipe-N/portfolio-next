@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }) {
         <NextSeo
         title="Luis Felipe"
         description="Meu Nome é Luis Felipe, Desenvolvedor Front-End e atualmente cursando Ciências da Computação. Dezoito anos."
-        canonical="https://www.canonical.ie/"
+        canonical="https://luisnunes.me"
         openGraph={{
             url: 'https://luisnunes.me',
             title: 'Luis Felipe',

@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
             <Html>
                 <Head>
                     <meta name="theme-color" content="#000"/>
-                    <meta name="keywords" content="sites, desenvolvimento web, front end, front-end, Luis Felipe Nunes de Carvalho, portifolio, portifólio" />
+                    <meta name="keywords" content="sites, desenvolvimento web, front end, front-end, Luis Felipe Nunes de Carvalho, portifolio, portifólio, cursando, html, css, javascript" />
                     <meta name="copyright" content="© 2021 Luis Felipe" />
                     <meta name="robots" content="index,follow" />
 
