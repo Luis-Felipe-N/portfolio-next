@@ -76,7 +76,10 @@
 
         .languages {
             margin-top: 1rem;
-            color: var(--color-200);
+            color: var(--color-100);
+            display: flex;
+            gap: .2rem;
+            font-size: .875rem;
         }
     }
 }

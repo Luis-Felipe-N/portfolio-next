@@ -34,7 +34,7 @@ export function Header() {
                         </h1>
                     </a>
                 </Link>
-                <nav ref={menuRef} className={openMenu ? styles.active : ''}>
+                <nav ref={menuRef} className={openMenu ? styles.active : '' || '/'}>
                     <NavLink className={styles.active} to="/">
                         Home
                     </NavLink>

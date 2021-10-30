@@ -19,7 +19,6 @@ export default function Home({projects, skills}) {
 	}, [])
 
 
-
 	return (
 		<>
 			<Head>
@@ -86,7 +85,7 @@ export const getStaticProps = async () => {
             thumb: {
                 url: project.thumb.url
             },
-			languages: project.languages
+			languages: project.languages.split(' ')
         }
     })
 
@@ -96,6 +95,6 @@ export const getStaticProps = async () => {
             projects,
 			skills
         },
-		revalidate: 60 * 60 * 1 // 1 horas
+		revalidate: 60 * 60 * 24 // 1 horas
     }
 }

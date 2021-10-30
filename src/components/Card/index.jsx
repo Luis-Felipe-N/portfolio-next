@@ -2,6 +2,8 @@ import styles from './styles.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Tag } from '../Tag'
+
 import {BiCodeAlt, BiLink} from 'react-icons/bi'
 import AnimationUp from '../AnimationUp'
 
@@ -31,7 +33,7 @@ export function Card({project}) {
                     </Link>
                 </div>
                 <div className={styles.languages}>
-                    {project.languages}
+                    {project.languages.map( language => <Tag key={language} language={language} /> )}
                 </div>
             </div>
         </article>
