@@ -30,7 +30,7 @@ export function Card({project}) {
                         <a aria-label="Link do site do projeto" target="_blank" rel="noreferrer" >Preview <BiLink /></a>
                     </Link>
                     <Link href={project.code}>
-                        <a aria-label="Link do github do projeto" target="_blank" rel="noreferrer">Code <BiCodeAlt /></a>
+                        <a aria-label="Link do github do projeto" target="_blank" rel="noreferrer">Code <BiCodeAlt  /></a>
                     </Link>
                 </div>
                 <div className={styles.languages}>
