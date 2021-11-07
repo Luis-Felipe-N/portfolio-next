@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import {useRouter} from 'next/router'
 
 import styles from './styles.module.scss'
 
@@ -11,6 +11,26 @@ import { ButtonLigthMode } from '../ButtonLigthMode'
 export function Header() {
     const [ openMenu, setOpenMenu ] = useState()
     const menuRef = useRef()
+    const makerRef = useRef()
+    const homeLinkRef = useRef()
+    const projectsLinkRef = useRef()
+
+    const router = useRouter()
+
+    useEffect(() => {
+        const currentPage = router.asPath
+        
+        if (currentPage === '/projetos') {
+            moveMakerInNav(projectsLinkRef)
+        } else {
+            moveMakerInNav(homeLinkRef)
+        }
+    }, [router])
+
+    function moveMakerInNav( currentElement ) {
+        makerRef.current.style.width = `${currentElement.current.clientWidth}px`
+        makerRef.current.style.left = `${currentElement.current.offsetLeft}px`
+    }
 
     useEffect(() => {
         if ( openMenu ) {
@@ -40,13 +60,26 @@ export function Header() {
                         </h1>
                     </a>
                 </Link>
-                <nav ref={menuRef} className={openMenu ? styles.active : '' || '/'}>
-                    <NavLink className={styles.active} to="/">
-                        Home
-                    </NavLink>
-                    <NavLink to="/projetos">
-                        Projetos <BiRightArrowAlt />
-                    </NavLink>
+                <nav ref={menuRef} >
+                    <Link href="/">
+                        <a
+                            onClick={moveMakerInNav}
+                            ref={homeLinkRef}
+                            className={router.asPath === '/' ? styles.active : ''} 
+                        >
+                            Home
+                        </a>
+                    </Link>
+                    <Link href="/projetos">
+                        <a 
+                            onClick={moveMakerInNav}
+                            ref={projectsLinkRef}
+                            className={router.asPath === '/projetos' ? styles.active : ''} 
+                        >
+                            Projetos <BiRightArrowAlt />
+                        </a>
+                    </Link>
+                    <span ref={makerRef} className={styles.maker}></span>
                 </nav>
 
                 <ButtonLigthMode aria-label="Botão de Dark mode" />
