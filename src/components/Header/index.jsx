@@ -70,9 +70,13 @@ export function Header() {
                     <Link href="/">
                         <a
                             onMouseEnter={({target}) => moveInNav(target)}
-                            onMouseOut={moveMakerOfPage}
+                            onMouseOut={() => {
+                                setTimeout(() => {
+                                    moveMakerOfPage()
+                                }, 1000);
+                            }}
                             ref={homeLinkRef}
-                            className={router.asPath === '/' ? styles.active : ''} 
+                            className={router.asPath === '/' || router.asPath === '' ? styles.active : ''} 
                         >
                             Home
                         </a>
@@ -80,7 +84,11 @@ export function Header() {
                     <Link href="/projetos">
                         <a 
                             onMouseEnter={({target}) => moveInNav(target)}
-                            onMouseOut={moveMakerOfPage}
+                            onMouseOut={() => {
+                                setTimeout(() => {
+                                    moveMakerOfPage()
+                                }, 1000);
+                            }}
                             ref={projectsLinkRef}
                             className={router.asPath === '/projetos' ? styles.active : ''} 
                         >
