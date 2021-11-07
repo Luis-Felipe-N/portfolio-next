@@ -1,15 +1,17 @@
+import { useEffect, useRef, useState } from 'react'
+
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
 import styles from './styles.module.scss'
 
 import { BiFolder, BiFolderOpen, BiRightArrowAlt } from 'react-icons/bi'
-import { useEffect, useRef, useState } from 'react'
-import NavLink from '../NavLInk'
 import { ButtonLigthMode } from '../ButtonLigthMode'
 
 export function Header() {
     const [ openMenu, setOpenMenu ] = useState()
+    const [ currentPage, setCurrentPage ] = useState()
+
     const menuRef = useRef()
     const makerRef = useRef()
     const homeLinkRef = useRef()
@@ -17,20 +19,24 @@ export function Header() {
 
     const router = useRouter()
 
+    const moveInNav = (elem) => {
+        makerRef.current.style.width = `${elem.clientWidth}px`
+        makerRef.current.style.left = `${elem.offsetLeft}px`
+    }
+
+    const moveMakerOfPage = () => moveInNav(currentPage.current)
+
+    useEffect(() => {
+        if ( currentPage ) return moveMakerOfPage()
+    }, [currentPage])
+
     useEffect(() => {
         const currentPage = router.asPath
         
-        if (currentPage === '/projetos') {
-            moveMakerInNav(projectsLinkRef)
-        } else {
-            moveMakerInNav(homeLinkRef)
+        if ( !openMenu ) {
+            currentPage === '/projetos' ? setCurrentPage(projectsLinkRef) : setCurrentPage(homeLinkRef)
         }
     }, [router])
-
-    function moveMakerInNav( currentElement ) {
-        makerRef.current.style.width = `${currentElement.current.clientWidth}px`
-        makerRef.current.style.left = `${currentElement.current.offsetLeft}px`
-    }
 
     useEffect(() => {
         if ( openMenu ) {
@@ -63,7 +69,8 @@ export function Header() {
                 <nav ref={menuRef} className={openMenu ? styles.active : ''}>
                     <Link href="/">
                         <a
-                            // onClick={moveMakerInNav}
+                            onMouseEnter={({target}) => moveInNav(target)}
+                            onMouseOut={moveMakerOfPage}
                             ref={homeLinkRef}
                             className={router.asPath === '/' ? styles.active : ''} 
                         >
@@ -72,7 +79,8 @@ export function Header() {
                     </Link>
                     <Link href="/projetos">
                         <a 
-                            // onClick={moveMakerInNav}
+                            onMouseEnter={({target}) => moveInNav(target)}
+                            onMouseOut={moveMakerOfPage}
                             ref={projectsLinkRef}
                             className={router.asPath === '/projetos' ? styles.active : ''} 
                         >
