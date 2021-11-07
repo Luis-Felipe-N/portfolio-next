@@ -60,10 +60,10 @@ export function Header() {
                         </h1>
                     </a>
                 </Link>
-                <nav ref={menuRef} >
+                <nav ref={menuRef} className={openMenu ? styles.active : ''}>
                     <Link href="/">
                         <a
-                            onClick={moveMakerInNav}
+                            // onClick={moveMakerInNav}
                             ref={homeLinkRef}
                             className={router.asPath === '/' ? styles.active : ''} 
                         >
@@ -72,7 +72,7 @@ export function Header() {
                     </Link>
                     <Link href="/projetos">
                         <a 
-                            onClick={moveMakerInNav}
+                            // onClick={moveMakerInNav}
                             ref={projectsLinkRef}
                             className={router.asPath === '/projetos' ? styles.active : ''} 
                         >

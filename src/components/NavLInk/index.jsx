@@ -1,6 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
-import styles from '../Header/styles.module.scss'
+// import styles from '../Header/styles.module.scss'
 
 export default function NavLink({children, to, ...props}) {
 
