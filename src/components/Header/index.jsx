@@ -33,8 +33,8 @@ export function Header() {
     useEffect(() => {
         const currentPage = router.asPath
         
+        currentPage === '/projetos' ? setCurrentPage(projectsLinkRef) : setCurrentPage(homeLinkRef)
         if ( !openMenu ) {
-            currentPage === '/projetos' ? setCurrentPage(projectsLinkRef) : setCurrentPage(homeLinkRef)
         }
     }, [router])
 
@@ -70,13 +70,10 @@ export function Header() {
                     <Link href="/">
                         <a
                             onMouseEnter={({target}) => moveInNav(target)}
-                            onMouseOut={() => {
-                                setTimeout(() => {
-                                    moveMakerOfPage()
-                                }, 1000);
-                            }}
+                            // onMouseDown={({target}) => moveInNav(target)}
+                            onMouseOut={moveMakerOfPage}
                             ref={homeLinkRef}
-                            className={router.asPath === '/' || router.asPath === '' ? styles.active : ''} 
+                            className={router.asPath === '/' ? styles.active : ''} 
                         >
                             Home
                         </a>
@@ -84,11 +81,8 @@ export function Header() {
                     <Link href="/projetos">
                         <a 
                             onMouseEnter={({target}) => moveInNav(target)}
-                            onMouseOut={() => {
-                                setTimeout(() => {
-                                    moveMakerOfPage()
-                                }, 1000);
-                            }}
+                            onMouseOut={moveMakerOfPage}
+                            // onMouseDown={({target}) => moveInNav(target)}
                             ref={projectsLinkRef}
                             className={router.asPath === '/projetos' ? styles.active : ''} 
                         >
