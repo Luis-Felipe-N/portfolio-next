@@ -11,12 +11,13 @@ import { useChangeColor } from '../hooks/useChangeColor'
 
 export default function Home({projects, skills}) {
 
+	const { changeColor} = useChangeColor()
 
 	useEffect(() => {
 		const bodyHaveTheme = document.body.className.includes('theme')
         
         if ( !bodyHaveTheme ) {
-            useChangeColor()
+            changeColor()
         }
 	}, [])
 

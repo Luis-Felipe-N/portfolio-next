@@ -1,11 +1,14 @@
 export function useChangeColor(index = false) {
-    for (let index = 0; index <= 4; index++) {
-        document.body.classList.remove('theme' + index)     
+    function changeColor() {
+        for (let index = 0; index <= 4; index++) {
+            document.body.classList.remove('theme' + index)     
+        }
+         
+        if ( index ) {
+            document.body.classList.add('theme' + index)
+        } else {
+            document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
+        }
     }
-     
-    if ( index ) {
-        document.body.classList.add('theme' + index)
-    } else {
-        document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
-    }
+    return { changeColor }
 }

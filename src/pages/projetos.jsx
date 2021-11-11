@@ -9,11 +9,13 @@ import styles from '../styles/pages/projects.module.scss'
 
 export default function Projetos({projects}) {
 
+    const { changeColor } = useChangeColor()
+
     useEffect(() => {
         const bodyHaveTheme = document.body.className.includes('theme')
         
         if ( !bodyHaveTheme ) {
-            useChangeColor()
+            changeColor()
         }
 	}, [])
 

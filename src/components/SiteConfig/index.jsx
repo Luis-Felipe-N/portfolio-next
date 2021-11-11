@@ -24,6 +24,11 @@ export function SiteConfig() {
     const [ openModal, setOpenModal ] = useState(false)
     const siteConfigRef = useRef()
 
+    const { changeColor } = useChangeColor()
+
+    const handleChangeColor = ( theme ) => {
+        changeColor(theme)
+    }
 
     useEffect(() => {
         if ( openModal ) {
@@ -46,7 +51,7 @@ export function SiteConfig() {
                         {
                             colors.map( ({color, theme}) => (
                                 <li 
-                                    onClick={() => useChangeColor(theme)}
+                                    onClick={() => handleChangeColor(theme)}
                                     key={color} 
                                     aria-label="Cor do site" 
                                     style={{backgroundColor: color}}
