@@ -1,0 +1,110 @@
+.siteConfigContainer {
+    position: relative;
+
+    .btnOpen{
+        position: relative;
+        z-index: 4;
+        font-size: 0;
+        background-color: transparent;
+        border: 0;
+        color: var(--color-300);
+        padding: .4rem;
+        border-radius: 100%;
+        transition: .2s;
+
+        &:hover {
+            background-color: var(--color-900);
+            box-shadow: 0 0 0 4px var(--color-900);
+        }
+    }
+
+    > div {
+        display: none;
+    }
+
+    > div.active {
+        position: absolute;
+        right: -10px;
+        top: 2.7rem;
+        border: 1px solid var(--color-300);
+        background-color: var(--background);
+
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        width: 12rem;
+
+        animation: toUp .2s;
+
+        div {
+            padding: .7rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            h4 {
+                margin-bottom: .2rem;
+            }
+
+            ul {
+                list-style: none;
+                display: flex;
+                gap: .5rem;
+
+                li {
+                    cursor: pointer;
+                    border-radius: 100%;
+                    width: 20px;
+                    height: 20px;
+                    transition: .2s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            button {
+                margin-left: 0;
+            }
+
+            & + div {
+                padding-top: 0;
+            }
+
+        }
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+        
+        &::after {
+            top: -19px;
+            right: 16px;
+            border: 10px solid transparent ;
+            border-bottom: 10px solid var(--background);
+        }
+
+        &::before {
+            top: -22px;
+            right: 15px;
+            border: 11px solid transparent ;
+            border-bottom: 11px solid var(--color-300);
+        }
+    }
+}
+
+@keyframes toUp {
+    from {
+        top: 2.1rem;
+        opacity: 0;
+    } to {
+        top: 2.7rem;
+        opacity: 1;
+    }
+}

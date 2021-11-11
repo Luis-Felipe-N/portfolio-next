@@ -7,6 +7,8 @@ import styles from './styles.module.scss'
 
 import { BiFolder, BiFolderOpen, BiRightArrowAlt } from 'react-icons/bi'
 import { ButtonLigthMode } from '../ButtonLigthMode'
+import { SiteConfig } from '../SiteConfig'
+import { useClickOutSide } from '../../hooks/useClickOutSide'
 
 export function Header() {
     const [ openMenu, setOpenMenu ] = useState()
@@ -40,20 +42,13 @@ export function Header() {
 
     useEffect(() => {
         if ( openMenu ) {
-            document.addEventListener('click', handleClickOutSideMenu)
-            
-            function handleClickOutSideMenu({target}) {
-                if(!target.contains(menuRef.current)) {
-                    setOpenMenu(!openMenu)
-                    document.removeEventListener('click', handleClickOutSideMenu)
-                }
-            }
+            useClickOutSide( menuRef.current, openMenu, setOpenMenu )
         }
     }, [openMenu])
 
     return (
         <header className={styles.headerContainer}>
-            <div>
+            <div >
                 <Link href="/">
                     <a>
                         <h1 className={styles.logo}>
@@ -69,9 +64,7 @@ export function Header() {
                 <nav ref={menuRef} className={openMenu ? styles.active : ''}>
                     <Link href="/">
                         <a
-                            onMouseEnter={({target}) => moveInNav(target)}
-                            // onMouseDown={({target}) => moveInNav(target)}
-                            onMouseOut={moveMakerOfPage}
+                            onClick={moveMakerOfPage}
                             ref={homeLinkRef}
                             className={router.asPath === '/' ? styles.active : ''} 
                         >
@@ -80,19 +73,17 @@ export function Header() {
                     </Link>
                     <Link href="/projetos">
                         <a 
-                            onMouseEnter={({target}) => moveInNav(target)}
-                            onMouseOut={moveMakerOfPage}
-                            // onMouseDown={({target}) => moveInNav(target)}
+                            onClick={moveMakerOfPage}
                             ref={projectsLinkRef}
                             className={router.asPath === '/projetos' ? styles.active : ''} 
                         >
-                            Projetos <BiRightArrowAlt />
+                            Projetos
                         </a>
                     </Link>
                     <span ref={makerRef} className={styles.maker}></span>
                 </nav>
 
-                <ButtonLigthMode aria-label="Botão de Dark mode" />
+                <SiteConfig />
 
                 <button 
                     aria-label="Botão de abrir menu"
@@ -100,9 +91,9 @@ export function Header() {
                     className={styles.btn_mobile}>
                     {
                         openMenu ? (
-                            <>Close<BiFolderOpen size="1.5rem" /></>
+                            <>Fechar<BiFolderOpen size="1.5rem" /></>
                         ) : (
-                            <>Open<BiFolder size="1.5rem" /></>
+                            <>Abrir<BiFolder size="1.5rem" /></>
                         )
                     }
                 </button>

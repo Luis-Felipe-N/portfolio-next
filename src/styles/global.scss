@@ -131,11 +131,11 @@ body, textarea, input, button {
 
 button {
     letter-spacing: 1px;
-    background-color: var(--color-400);
-    color: white;
+    // background-color: var(--color-400);
+    // color: white;
+    // border-radius: 2px;
     font-weight: 400;
     cursor: pointer;
-    border-radius: 2px;
     border: 0;
     transition: .2s;
 }

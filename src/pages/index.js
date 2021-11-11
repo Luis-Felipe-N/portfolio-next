@@ -6,16 +6,18 @@ import { getHomeProjects, getSkills } from '../lib/datoCMS'
 import styles from '../styles/pages/home.module.scss'
 import Head from 'next/head'
 import AnimationUp from '../components/AnimationUp'
+import { SiteConfig } from '../components/SiteConfig'
+import { useChangeColor } from '../hooks/useChangeColor'
 
 export default function Home({projects, skills}) {
 
 
 	useEffect(() => {
-		for (let index = 0; index <= 4; index++) {
-            document.body.classList.remove('theme' + index)     
+		const bodyHaveTheme = document.body.className.includes('theme')
+        
+        if ( !bodyHaveTheme ) {
+            useChangeColor()
         }
-		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
-		
 	}, [])
 
 
@@ -29,6 +31,7 @@ export default function Home({projects, skills}) {
 			<main className={styles.homeContainer}>
 				<AnimationUp>
 					<section className={styles.hero}>
+			{/* <SiteConfig /> */}
 						
 						<div>
 							<h1>Luis Felipe</h1>

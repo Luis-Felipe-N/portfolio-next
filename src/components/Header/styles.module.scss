@@ -7,7 +7,7 @@
     top: 0;
     z-index: 2;
 
-    div {
+    > div {
         max-width: 1050px;
         margin:  0 auto;
         height: 4rem;
@@ -28,7 +28,7 @@
             position: relative;
             margin-left: 3rem;
             flex: 1;
-            height: 4rem;
+            // height: 4rem;
             display: flex;
             gap: 1rem;
 
@@ -51,24 +51,16 @@
                     font-weight: bold;
                 }
     
-                // &.active::after {
-                //         content: '';
-                //         display: block;
-                //         width: 100%;
-                //         height: 3px;
-                //         border-radius: 3px 3px 0 0;
-                //         background-color: var(--color-300);
-                //         position: absolute;
-                //         bottom: 1px;
-                //         left: 0;
-                // }
+
+                &.active ~ .maker {
+                    transition-delay: .5s;
+                }
             }
 
             .maker {
                 content: '';
                 display: block;
-                transition: .6s;
-                transition-delay: .5s;
+                transition: .4s;
                 width: 36px;
                 height: 3px;
                 border-radius: 3px 3px 0 0;
@@ -87,7 +79,11 @@
 
 @media (max-width: 800px) {
     .headerContainer {
-        div {
+        > div {
+
+            > a {
+                flex: 1;
+            }
             nav {
                 background-color: var(--color-900);
 
@@ -101,12 +97,28 @@
 
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
 
+                padding: 2rem;
                 transition: .2s;
 
                 a {
-                    font-size: 1.5rem;
+                    font-size: 2rem;
+
+                    &.active::after {
+                        content: '';
+                        display: block;
+                        width: 100%;
+                        height: 3px;
+                        border-radius: 3px 3px 0 0;
+                        background-color: var(--color-300);
+                        position: absolute;
+                        bottom: 1px;
+                        left: 0;
+                    }
+                }
+
+                .maker {
+                    display: none;
                 }
             }
 
@@ -121,6 +133,9 @@
                 align-items: center;
                 gap: .2rem;
                 font-weight: 500;
+                background-color: var(--color-400);
+                color: white;
+                border-radius: 2px;
             }
         }
     }

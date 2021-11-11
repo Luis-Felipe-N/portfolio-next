@@ -37,7 +37,7 @@ export function ButtonLigthMode({...props}) {
                     className={styles.ligth_mode}
                     onClick={handleSetDarkMode}
                 >
-                    <BiMoon size='1.5rem' />
+                    <BiMoon size='1.4rem' />
                 </button>
             ) : (
                 <button
@@ -45,7 +45,7 @@ export function ButtonLigthMode({...props}) {
                     className={styles.ligth_mode}
                     onClick={ handleSetLigthMode}
                 >
-                    <BiSun size='1.5rem' />
+                    <BiSun size='1.4rem' />
                 </button>
             )
         }

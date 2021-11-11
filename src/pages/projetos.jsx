@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { Card } from "../components/Card"
+import { useChangeColor } from '../hooks/useChangeColor'
 import { getProjects } from "../lib/datoCMS"
 
 import styles from '../styles/pages/projects.module.scss'
@@ -9,11 +10,11 @@ import styles from '../styles/pages/projects.module.scss'
 export default function Projetos({projects}) {
 
     useEffect(() => {
-        for (let index = 0; index <= 4; index++) {
-            document.body.classList.remove('theme' + index)
-            
+        const bodyHaveTheme = document.body.className.includes('theme')
+        
+        if ( !bodyHaveTheme ) {
+            useChangeColor()
         }
-		document.body.classList.add('theme' + (Math.floor( Math.random() * 4) + 1))
 	}, [])
 
     return (

@@ -77,6 +77,9 @@
         }
        .btn_view_more {
            margin-top: 2rem;
+               background-color: var(--color-400);
+                color: white;
+                border-radius: 2px;
 
            &:hover {
                 background-color: transparent;
@@ -88,16 +91,16 @@
 
 }
 
-.ligth_mode {
-    .homeContainer {
-        .hero {
-            align-items: flex-start;
-            &_image {
-                background-color: aquamarine !important;
-            }
-        }
-    }
-}
+// .ligth_mode {
+//     .homeContainer {
+//         .hero {
+//             align-items: flex-start;
+//             &_image {
+//                 background-color: aquamarine !important;
+//             }
+//         }
+//     }
+// }
 
 @media (max-width:800px) {
     .homeContainer {
