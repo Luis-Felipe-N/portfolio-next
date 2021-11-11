@@ -30,7 +30,7 @@ export function Header() {
 
     useEffect(() => {
         if ( currentPage ) return moveMakerOfPage()
-    }, [currentPage])
+    }, [currentPage, moveMakerOfPage])
 
     useEffect(() => {
         const currentPage = router.asPath
@@ -44,7 +44,7 @@ export function Header() {
         if ( openMenu ) {
             useClickOutSide( menuRef.current, openMenu, setOpenMenu )
         }
-    }, [openMenu])
+    }, [useClickOutSide])
 
     return (
         <header className={styles.headerContainer}>
