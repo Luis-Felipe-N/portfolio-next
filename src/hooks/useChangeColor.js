@@ -1,5 +1,5 @@
-export function useChangeColor(index = false) {
-    function changeColor() {
+export function useChangeColor() {
+    function changeColor(index) {
         for (let index = 0; index <= 4; index++) {
             document.body.classList.remove('theme' + index)     
         }

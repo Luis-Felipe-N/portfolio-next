@@ -17,7 +17,7 @@ export default function Projetos({projects}) {
         if ( !bodyHaveTheme ) {
             changeColor()
         }
-	}, [])
+	}, [changeColor])
 
     return (
         <>

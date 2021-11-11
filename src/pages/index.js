@@ -19,7 +19,7 @@ export default function Home({projects, skills}) {
         if ( !bodyHaveTheme ) {
             changeColor()
         }
-	}, [])
+	}, [changeColor])
 
 
 	return (

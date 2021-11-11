@@ -11,7 +11,6 @@ import { useClickOutSide } from '../../hooks/useClickOutSide'
 
 export function Header() {
     const [ openMenu, setOpenMenu ] = useState()
-    const [ currentPage, setCurrentPage ] = useState()
 
     const menuRef = useRef()
     const makerRef = useRef()
@@ -25,18 +24,10 @@ export function Header() {
         makerRef.current.style.left = `${elem.offsetLeft}px`
     }
 
-    const moveMakerOfPage = () => moveInNav(currentPage.current)
-
-    useEffect(() => {
-        if ( currentPage ) return moveMakerOfPage()
-    }, [currentPage, moveMakerOfPage])
-
     useEffect(() => {
         const currentPage = router.asPath
         
-        currentPage === '/projetos' ? setCurrentPage(projectsLinkRef) : setCurrentPage(homeLinkRef)
-        if ( !openMenu ) {
-        }
+        currentPage === '/projetos' ? moveInNav(projectsLinkRef.current) : moveInNav(homeLinkRef.current)
     }, [router])
 
     useEffect(() => {
@@ -63,7 +54,7 @@ export function Header() {
                 <nav ref={menuRef} className={openMenu ? styles.active : ''}>
                     <Link href="/">
                         <a
-                            onClick={moveMakerOfPage}
+                            // onClick={moveMakerOfPage}
                             ref={homeLinkRef}
                             className={router.asPath === '/' ? styles.active : ''} 
                         >
@@ -72,7 +63,7 @@ export function Header() {
                     </Link>
                     <Link href="/projetos">
                         <a 
-                            onClick={moveMakerOfPage}
+                            // onClick={moveMakerOfPage}
                             ref={projectsLinkRef}
                             className={router.asPath === '/projetos' ? styles.active : ''} 
                         >
