@@ -29,7 +29,7 @@ export function SiteConfig() {
         if ( openModal ) {
             useClickOutSide( siteConfigRef.current, openModal, setOpenModal )
         }
-    }, [])
+    }, [openModal])
 
     return (
         <div className={styles.siteConfigContainer}>

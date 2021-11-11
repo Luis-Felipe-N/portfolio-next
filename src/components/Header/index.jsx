@@ -44,7 +44,7 @@ export function Header() {
         if ( openMenu ) {
             useClickOutSide( menuRef.current, openMenu, setOpenMenu )
         }
-    }, [useClickOutSide])
+    }, [openMenu, useClickOutSide])
 
     return (
         <header className={styles.headerContainer}>
