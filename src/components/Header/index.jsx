@@ -19,6 +19,8 @@ export function Header() {
 
     const router = useRouter()
 
+    const { clickOutSide } = useClickOutSide()
+
     const moveInNav = (elem) => {
         makerRef.current.style.width = `${elem.clientWidth}px`
         makerRef.current.style.left = `${elem.offsetLeft}px`
@@ -32,9 +34,9 @@ export function Header() {
 
     useEffect(() => {
         if ( openMenu ) {
-            useClickOutSide( menuRef.current, openMenu, setOpenMenu )
+            clickOutSide( menuRef.current, openMenu, setOpenMenu )
         }
-    }, [openMenu, useClickOutSide])
+    }, [openMenu, clickOutSide])
 
     return (
         <header className={styles.headerContainer}>
