@@ -52,7 +52,8 @@ export const getStaticProps = async () => {
             thumb: {
                 url: project.thumb.url
             },
-            languages: project.languages.split(' ')
+            languages: project.languages.split(' '),
+            video: project.video
         }
     })
 

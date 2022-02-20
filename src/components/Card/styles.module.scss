@@ -28,6 +28,10 @@
             font-size: .95rem;
             color: var(--color-200);
             margin: .3rem 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+            overflow: hidden; 
 
             a {
                 text-decoration: underline;
@@ -36,47 +40,24 @@
             }
         }
 
-        .btns {
+        button {
             width: 100%;
+            text-align: center;
+            padding: .5rem .7rem;
+            background-color: var(--color-400);
+            color: var(--color-white);
+            border-radius: 2px;
             display: flex;
-            gap: 1rem;
-            margin-top: .7rem;
-
-            a {
-                width: 100%;
-                text-align: center;
-                padding: .5rem .7rem;
-                background-color: var(--color-400);
-                color: var(--color-white);
-                border-radius: 2px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: .2rem;
-                transition: .2s;
-                
-
-                &:hover {
-                    filter: brightness(.8);
-                }
-
-                & + a {
-                    background-color: transparent;
-                    box-shadow: 0 0 0 1px var(--color-400);
-                    color: var(--color-400);
-
-                   
-                }
-
-            }
-        }
-
-        .languages {
-            margin-top: 1rem;
-            color: var(--color-100);
-            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: .2rem;
-            font-size: .875rem;
+            transition: .2s;
+            
+
+            &:hover {
+                filter: brightness(.8);
+            }
+
         }
     }
 }

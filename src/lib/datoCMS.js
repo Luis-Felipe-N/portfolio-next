@@ -29,18 +29,19 @@ export async function getHomeProjects() {
   query MyQuery {
     allHomeProjects {
       id
-          _firstPublishedAt
-          title
-          thumb {
-            alt
-            url
-            title
-          }
-          languages
-          preview
-          description
-          code
-          createdAt
+      _firstPublishedAt
+      title
+      thumb {
+        alt
+        url
+        title
+      }
+      languages
+      preview
+      description
+      code
+      createdAt
+      
     }
   }
   
@@ -68,6 +69,12 @@ export async function getProjects() {
         description
         code
         createdAt
+        video {
+          url
+          provider
+          providerUid
+          thumbnailUrl
+        }
       }
     }  
     `)
@@ -87,4 +94,34 @@ export async function getSkills() {
   }`)
   
   return data.allSkills
+}
+
+export async function getProject( id ) {
+  const data = await fetchCMSApi(`{
+    project(filter: {id: {eq: "${id}"}}) {
+      id
+      _firstPublishedAt
+      title
+      thumb {
+        alt
+        url
+        title
+      }
+      languages
+      preview
+      description
+      code
+      createdAt
+      video {
+        url
+        provider
+        providerUid
+        thumbnailUrl
+      }
+    }
+  }`)
+
+  // console.log( data )
+
+  return data.project
 }

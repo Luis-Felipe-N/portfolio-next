@@ -131,9 +131,6 @@ body, textarea, input, button {
 
 button {
     letter-spacing: 1px;
-    // background-color: var(--color-400);
-    // color: white;
-    // border-radius: 2px;
     font-weight: 400;
     cursor: pointer;
     border: 0;
@@ -175,4 +172,46 @@ a {
         opacity: 0;
         transform: translateY(20px);
     }
+}
+
+.ReactModal__Overlay--after-open {
+    z-index: 3;
+    background-color: var(--color-900) !important;
+    backdrop-filter: opacity(20%);
+}
+
+.ReactModal__Content {
+    background-color: var(--background) !important;
+    padding: 0;
+}
+
+// SCROLL BAR
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-500);
+  border: 0px none var(--color-100);
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-100);
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none var(--color-100);
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

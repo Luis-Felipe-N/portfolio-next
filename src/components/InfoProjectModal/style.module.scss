@@ -1,0 +1,96 @@
+.btn_close {
+    
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-900);
+    color: var(--color-200);
+    border: 1px solid var(--color-200) ;
+    border-radius: 50%;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    // transform: translate(50%);
+}
+
+.modal {
+    &__thumb {
+        height: 50vh;
+        width: 100%;
+        margin: 0 auto;
+        background-color: var(--color-900);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__infos {
+        padding: 1rem 2rem;
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            color: var(--color-200);
+        }
+
+        p {
+            color: var(--color-300);
+        }
+
+        h4 {
+            color: var(--color-200);
+            margin: 1rem 0 .5rem ;
+        }
+
+        &_bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
+            flex-wrap: wrap
+        }
+
+        &_skills {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            
+            img {
+                height: 50px;
+            }
+        }
+
+        &_btns {
+            display: flex;
+            gap: 1rem;
+    
+
+            a {
+                width: 100%;
+                text-align: center;
+                padding: .5rem .7rem;
+                background-color: var(--color-400);
+                color: var(--color-white);
+                border-radius: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .2rem;
+                transition: .2s;
+                
+
+                &:hover {
+                    filter: brightness(.8);
+                }
+
+                & + a {
+                    background-color: transparent;
+                    box-shadow: 0 0 0 1px var(--color-400);
+                    color: var(--color-400);
+
+                   
+                }
+
+            }
+        }
+    }
+}
