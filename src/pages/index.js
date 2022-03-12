@@ -76,11 +76,12 @@ export const getStaticProps = async () => {
 		}
 	})
 
+	const IDs = [53401117, 53402422, 53400747] // Esses ids é tempórarios. Arrumar o bug quando tiver tempo!
 
     const parsedProjects = await getHomeProjects()
-    const projects = parsedProjects.map( project => {
+    const projects = parsedProjects.map( (project, index) => {
         return {
-            id: project.id,
+            id: IDs[index],
             code: project.code,
             preview: project.preview,
             createdAt: project.createdAt,
@@ -99,6 +100,6 @@ export const getStaticProps = async () => {
             projects,
 			skills
         },
-		revalidate: 60 * 60 * 24 // 1 horas
+		revalidate: 60 * 60 * 24 // 1 dia
     }
 }

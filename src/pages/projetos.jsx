@@ -41,6 +41,7 @@ export default function Projetos({projects}) {
 
 export const getStaticProps = async () => {
     const data = await getProjects()
+
     const projects = data.map( project => {
         return {
             id: project.id,
@@ -57,10 +58,12 @@ export const getStaticProps = async () => {
         }
     })
 
+    const an_hour = 60 * 60 * 1
+
     return {
         props: {
             projects
         },
-        revalidate: 60 * 60 * 1 // 1 horas
+        revalidate: an_hour,
     }
 }

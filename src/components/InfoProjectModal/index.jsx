@@ -3,8 +3,8 @@ import ReactModal from 'react-modal'
 import { getProject } from '../../lib/datoCMS'
 import styles from './style.module.scss'
 import Link from 'next/link'
-import Image from 'next/image'
 import { BiLink, BiCodeAlt } from 'react-icons/bi'
+
 
 export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
     const [ project, setProject ] = useState()
