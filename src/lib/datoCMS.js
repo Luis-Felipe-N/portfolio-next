@@ -106,6 +106,8 @@ export async function getProject( id ) {
         alt
         url
         title
+        width
+        height
       }
       languages
       preview
