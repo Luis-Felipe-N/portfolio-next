@@ -1,0 +1,58 @@
+.loading {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    ul {
+        display: flex;
+        gap: .5rem;
+        list-style: none;
+        position: relative;
+    }
+
+    li {
+        position: absolute;
+        opacity: 0;
+    }
+
+    @for $i from 0 to 5 {
+        &__dots_#{$i} {
+            border-radius: 100%;
+            width: 1.65rem;
+            height: 1.65rem;
+            background-color: var(--color-400);
+            animation: dotAnimation 1s ease-in-out infinite calc(#{$i}s / 1.2) ;
+        }
+    }
+
+    h3 {
+        color: var(--color-200);
+    }
+
+}
+
+@keyframes dotAnimation {
+    0% {
+        transform: translateX(0);
+        opacity: .7;
+    }
+
+    25% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(0);
+        opacity: .5;
+    }
+
+    100% {
+        transform: translateX(-50px);
+        opacity: .7;
+    }
+}

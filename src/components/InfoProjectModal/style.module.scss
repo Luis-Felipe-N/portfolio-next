@@ -1,3 +1,4 @@
+
 .btn_close {
     
     width: 50px;
@@ -7,20 +8,28 @@
     border: 1px solid var(--color-200) ;
     border-radius: 50%;
     position: fixed;
-    top: 15px;
-    right: 15px;
+    top: 5px;
+    right: 5px;
+    z-index: 4;
     // transform: translate(50%);
 }
 
 .modal {
     &__thumb {
-        height: 50vh;
+        border-radius: 5px;
         width: 100%;
         margin: 0 auto;
+        display: grid;
+        place-items: center;
         background-color: var(--color-900);
-        background-size: contain;
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        overflow: hidden;
+
+        img {
+            max-height: 20rem;
+        }
     }
 
     &__infos {
@@ -85,9 +94,7 @@
                 & + a {
                     background-color: transparent;
                     box-shadow: 0 0 0 1px var(--color-400);
-                    color: var(--color-400);
-
-                   
+                    color: var(--color-400);                   
                 }
 
             }

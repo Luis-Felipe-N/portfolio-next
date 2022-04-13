@@ -1,5 +1,5 @@
 .homeContainer {
-    max-width: 1050px;
+    max-width: 1200px;
     margin: auto;
     padding: 2rem 5%;
     
@@ -57,6 +57,7 @@
     }
 
     .skills {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -116,7 +117,9 @@
         .cards {
             .cardsContainer {
                 justify-content: center;
+                
             }
         }
     }
 }
+

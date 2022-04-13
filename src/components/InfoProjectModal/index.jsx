@@ -4,6 +4,9 @@ import { getProject } from '../../lib/datoCMS'
 import styles from './style.module.scss'
 import Link from 'next/link'
 import { BiLink, BiCodeAlt } from 'react-icons/bi'
+import { Loading } from '../Loading'
+import AnimationUp from '../AnimationUp'
+import Image from 'next/image'
 
 
 export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
@@ -29,7 +32,7 @@ export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
         >
             {
                 loading && (
-                    <h1>Carregando...</h1>
+                    <Loading/>
                 )
             }
             <button className={styles.btn_close} onClick={ onRequestClose }>
@@ -43,42 +46,48 @@ export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
                         !project.video ? (
                             <div
                                 className={styles.modal__thumb}
-                                style={{backgroundImage: `url(${project.thumb.url})`}}
+                                style={{backgroundImage: `linear-gradient(90deg, var(--color-900-alpha) 0%, var(--color-900-alpha) 98%), url(${project.thumb.url})`}}
                             >
+                                <Image
+                                    src={project.thumb.url}
+                                    width={project.thumb.width}
+                                    height={project.thumb.height}
+                                    alt="fsfd"
+                                    />
                             </div>
                         ) : (
                             <div
                                 className={styles.modal__thumb}
-                                style={{backgroundImage: `url(${project.thumb.url})`}}
                             >
                             </div>
                         )
                     }
-                    
-                    <div className={styles.modal__infos}>
-                        <h1>{project.title}</h1>
-                        <h4>Descrição</h4>
-                        <p dangerouslySetInnerHTML={{ __html: project.description}}>
-                        </p>
+                    <AnimationUp>
+                        <div className={styles.modal__infos}>
+                            <h1>{project.title}</h1>
+                            <h4>Descrição</h4>
+                            <p dangerouslySetInnerHTML={{ __html: project.description}}>
+                            </p>
 
-                        <h4>Linguagens</h4>
-                        <div className={styles.modal__infos_bottom}>
-                            <div className={styles.modal__infos_skills}>
-                                {
-                                    
-                                project.languages.split(';').map( language => <img title={language} src={`./assets/${language.toLowerCase()}.png`} alt={language} key={language} /> )
-                                }
-                            </div>
-                            <div className={styles.modal__infos_btns}>
-                                <Link href={project.preview}>
-                                    <a aria-label="Link do site do projeto" target="_blank" rel="noreferrer" >Preview <BiLink /></a>
-                                </Link>
-                                <Link href={project.code}>
-                                    <a aria-label="Link do github do projeto" target="_blank" rel="noreferrer">Code <BiCodeAlt  /></a>
-                                </Link>
+                            <h4>Linguagens</h4>
+                            <div className={styles.modal__infos_bottom}>
+                                <div className={styles.modal__infos_skills}>
+                                    {
+                                        
+                                    project.languages.split(';').map( language => <img title={language} src={`./assets/${language.toLowerCase()}.png`} alt={language} key={language} /> )
+                                    }
+                                </div>
+                                <div className={styles.modal__infos_btns}>
+                                    <Link href={project.preview}>
+                                        <a aria-label="Link do site do projeto" target="_blank" rel="noreferrer" >Preview <BiLink /></a>
+                                    </Link>
+                                    <Link href={project.code}>
+                                        <a aria-label="Link do github do projeto" target="_blank" rel="noreferrer">Code <BiCodeAlt  /></a>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </AnimationUp>
                 </div>
             )
         }
