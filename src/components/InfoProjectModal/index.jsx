@@ -59,6 +59,7 @@ export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
                             <div
                                 className={styles.modal__thumb}
                             >
+                                <iframe width={560} height={310} src={`https://www.youtube.com/embed/${project.video.providerUid}`}title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
                         )
                     }
