@@ -8,10 +8,22 @@ import { Loading } from '../Loading'
 import AnimationUp from '../AnimationUp'
 import Image from 'next/image'
 
+const typeThumb =[
+    {
+        id: 0,
+        type: 'image'
+    },
+    {
+        id: 1,
+        type: 'video'
+    },
+]
+
 
 export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
     const [ project, setProject ] = useState()
     const [ loading, setLoading ] = useState(true)
+    const [ CurrentViewThumb, setCurrentViewThumb ] = useState(0)
 
     useEffect(() => {
         const requestProject = async () => {
@@ -27,8 +39,10 @@ export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
         <>
         <ReactModal
             className={styles.modal}
+            overlayClassName={styles.modalOverlay}
             onRequestClose={ onRequestClose }
             isOpen={ isOpen }
+            // className={}
         >
             {
                 loading && (
@@ -57,12 +71,20 @@ export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
                             </div>
                         ) : (
                             <div
-                                className={styles.modal__thumb}
+                                style={{backgroundImage: `linear-gradient(90deg, var(--color-900-alpha) 0%, var(--color-900-alpha) 98%), url(${project.thumb.url})`}}
+                                className={`${styles.modal__thumb} ${styles.containerIframe}`}
                             >
-                                <iframe width={560} height={310} src={`https://www.youtube.com/embed/${project.video.providerUid}`}title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                <iframe className={styles.responsiveIframe} src={`https://www.youtube.com/embed/${project.video.providerUid}`} title={`Video de demosntração do projeto ${project.name}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
                         )
                     }
+                    {/* <div className={styles.modal__choise_banner}>
+                        <button className={styles.active}>Imagem</button>
+                        {project.video && (
+                            <button>Vídeo</button>
+                            )
+                        }
+                    </div> */}
                     <AnimationUp>
                         <div className={styles.modal__infos}>
                             <h1>{project.title}</h1>

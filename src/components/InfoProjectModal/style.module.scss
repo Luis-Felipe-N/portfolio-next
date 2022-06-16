@@ -1,20 +1,41 @@
 
-.btn_close {
-    
-    width: 50px;
-    height: 50px;
-    background-color: var(--color-900);
-    color: var(--color-200);
-    border: 1px solid var(--color-200) ;
-    border-radius: 50%;
+.modalOverlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     position: fixed;
-    top: 5px;
-    right: 5px;
-    z-index: 4;
-    // transform: translate(50%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    // backdrop-filter: opacity(20%);
 }
 
 .modal {
+    max-width: 40rem;
+    width: 100%;
+    background-color: var(--background) !important;
+    padding: 1.5rem;
+    position: relative;
+    border-radius: 10px;
+
+    .btn_close {
+        width: 50px;
+        height: 50px;
+        background-color: var(--color-900);
+        color: var(--color-200);
+        border: 1px solid var(--color-200) ;
+        border-radius: 50%;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        transform: translate(50%, -50%);
+        z-index: 4;
+    }
+
     &__thumb {
         border-radius: 5px;
         width: 100%;
@@ -32,8 +53,55 @@
         }
     }
 
+
+    .containerIframe {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    }
+
+    .responsiveIframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+
+    // &__choise_banner {
+    //     display: flex;
+    //     justify-content: center;
+    //     gap: 1rem;
+    //     margin: 1rem;
+        
+    //     button {
+    //         font-weight: 600;
+    //         color: var(--color-400);
+    //         background-color: transparent;
+    //         padding: .5rem 2rem;
+    //         position: relative;
+
+    //         &.active::after {
+    //             content: '';
+    //             display: block;
+    //             width: 10px;
+    //             height: 5px;
+    //             border-radius: 5px;
+    //             background-color: var(--color-400);
+    //             position: absolute;
+    //             right: 50%;
+    //             bottom: -3px;
+    //             transform: translateX(50%);
+    //         }
+    //     }
+    // }
+
     &__infos {
-        padding: 1rem 2rem;
+        padding: 1rem 0;
         display: flex;
         flex-direction: column;
 
@@ -98,6 +166,19 @@
                 }
 
             }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .modalOverlay {
+        align-items: flex-end;
+    }
+    .modal {
+        border-radius: 10px 10px 0 0 ;
+
+        .btn_close  {
+            display: none;
         }
     }
 }

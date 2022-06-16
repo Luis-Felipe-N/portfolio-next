@@ -30,7 +30,7 @@
         --color-500: #553C9A;
         --color-600: #6B46C1;
         --color-900: #322659;
-        --color-900-alpha: #32265950;
+        --color-900-alpha: rgba(50, 38, 89, 0.5);
         --background: #0a0813;
     }
     // pink
@@ -43,7 +43,7 @@
         --color-500: #D53F8C;
         --color-600: #B83280;
         --color-900: #521B41;
-        --color-900-alpha: #521B4150;
+        --color-900-alpha: rgba(82, 27, 65, 0.5);
         --background: #14050e;
     }
 
@@ -57,7 +57,7 @@
         --color-500: #38A169;
         --color-600: #2F855A;
         --color-900: #1C4532;
-        --color-900-alpha: #1C453250;
+        --color-900-alpha: rgba(28, 69, 50, 0.5);
         --background: #08140f;
     }
     // azul
@@ -70,7 +70,7 @@
         --color-500: #3182CE;
         --color-600: #2B6CB0;
         --color-900: #1A365D;
-        --color-900-alpha: #1A365D50;
+        --color-900-alpha: rgba(26, 54, 93, 0.5);
         --background: #0c0b11;
     }
 
@@ -84,7 +84,7 @@
         --color-500: #B794F4;
         --color-600: #D6BCFA;
         --color-900: #E9D8FD;
-        --color-900-alpha: #E9D8FD50;
+        --color-900-alpha: rgba(233, 216, 253, 0.5);
         --background: #FAF5FF;
     }
     // pink
@@ -97,7 +97,7 @@
         --color-500: #F687B3;
         --color-600: #FBB6CE;
         --color-900: #FED7E2;
-        --color-900-alpha: #FED7E250;
+        --color-900-alpha: rgba(254, 215, 226, 0.5);
         --background: #FFF5F7;
     }
     // ciano
@@ -110,7 +110,7 @@
         --color-500: #68D391;
         --color-600: #9AE6B4;
         --color-900: #C6F6D5;
-        --color-900-alpha: #C6F6D550;
+        --color-900-alpha: rgba(199, 245, 213, 0.5);
         --background: #F0FFF4;
     }
     // azul
@@ -123,7 +123,7 @@
         --color-500: #63B3ED;
         --color-600: #90CDF4;
         --color-900: #BEE3F8;
-        --color-900-alpha: #BEE3F850;
+        --color-900-alpha: rgba(190, 227, 248, 0.5);
         --background: #EBF8FF;
     }
 }
@@ -180,17 +180,6 @@ a {
         opacity: 0;
         transform: translateY(20px);
     }
-}
-
-.ReactModal__Overlay--after-open {
-    z-index: 3;
-    background-color: var(--color-900-alpha) !important;
-    backdrop-filter: opacity(20%);
-}
-
-.ReactModal__Content {
-    background-color: var(--background) !important;
-    padding: 0;
 }
 
 // SCROLL BAR
