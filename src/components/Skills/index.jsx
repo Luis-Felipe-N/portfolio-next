@@ -3,10 +3,10 @@ import styles from './styles.module.scss'
 
 export function Skill({image, name}) {
     return (
-        <article className={styles.skillContainer}>
+        <article title={'Tecnologia ' + name} className={styles.skillContainer}>
             <Image
                 src={image}
-                alt={name}
+                alt={'Tecnologia' + name}
                 title={name}
                 width={70}
                 height={70}

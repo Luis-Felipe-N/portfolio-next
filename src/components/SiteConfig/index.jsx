@@ -6,17 +6,22 @@ import { useChangeColor } from '../../hooks/useChangeColor';
 import { ButtonLigthMode } from '../ButtonLigthMode';
 import { useClickOutSide } from '../../hooks/useClickOutSide';
 
-const colors = [{
-    color: '#553C9A',
-    theme: 1
+const colors = [
+    {
+        color: '#553C9A',
+        name: 'Roxo',
+        theme: 1
     }, {
         color: '#D53F8C',
+        name: 'Rosa',
         theme: 2
     }, {
         color: '#38A169',
+        name: 'Verde',
         theme: 3
     }, {
         color: '#3182CE',
+        name: 'Azul',
         theme: 4
     }]
 
@@ -42,6 +47,7 @@ export function SiteConfig() {
             <button
                 className={styles.btnOpen}
                 onClick={() => setOpenModal(!openModal)}
+                title="Configuração de cor do site"
             >
                 <BsGear size="22px" />
             </button>
@@ -50,13 +56,18 @@ export function SiteConfig() {
                     <h4>Cores</h4>
                     <ul>
                         {
-                            colors.map( ({color, theme}) => (
+                            colors.map( ({color, theme, name}) => (
                                 <li 
-                                    onClick={() => handleChangeColor(theme)}
                                     key={color} 
-                                    aria-label="Cor do site" 
-                                    style={{backgroundColor: color}}
                                 >
+                                    <button 
+                                        tabIndex={0}
+                                        title={`Mudar cor do site para ${name}`}
+                                        onClick={() => handleChangeColor(theme)}
+                                        aria-label={`Mudar cor do site para ${name}`}
+                                        style={{backgroundColor: color}}>
+
+                                    </button>
 
                                 </li>
                             ))
