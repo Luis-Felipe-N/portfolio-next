@@ -37,34 +37,34 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
         <NextSeo
-        title="Luis Felipe"
+        title="Portfólio Luis Felipe"
         description="Meu Nome é Luis Felipe, Desenvolvedor Front-End e atualmente cursando Ciências da Computação. Dezoito anos."
         canonical="https://luisnunes.me"
         openGraph={{
             url: 'https://luisnunes.me',
-            title: 'Luis Felipe',
+            title: 'Portfólio Luis Felipe',
             description: 'Meu Nome é Luis Felipe, Desenvolvedor Front-End e atualmente cursando Ciências da Computação. Dezoito anos.',
             locale: 'PT_BR',
             canonical: 'https://luisnunes.me',
             images: [
             {
-                url: '/perfil.jpeg',
+                url: '/logo.png',
                 width: 100,
                 height: 100,
-                alt: 'Imagem de perfil',
-                type: 'image/jpeg',
+                alt: 'Logo com nome Luis Felipe',
+                type: 'image/png',
             },
             {
-                url: '/perfil.jpeg',
+                url: '/logo.png',
                 width: 100,
                 height: 100,
-                alt: 'Imagem de perfil',
-                type: 'image/jpeg',
+                alt: 'Logo com nome Luis Felipe',
+                type: 'image/png',
             },
-            { url: '/perfil.jpeg' },
-            { url: '/perfil.jpeg' },
+            { url: '/logo.png' },
+            { url: '/logo.png' },
             ],
-            site_name: 'Luis Felipe',
+            site_name: 'Portfólio Luis Felipe',
         }}
         twitter={{
             handle: '@handle',
