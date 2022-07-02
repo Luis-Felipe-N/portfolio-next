@@ -24,10 +24,21 @@ const fetchCMSApi = async (query, { variables } = {}) => {
 }
 
 
-export async function getHomeProjects() {
-  const data = await fetchCMSApi(`
-  query MyQuery {
+export async function getHomeProjects(IDs) {  
+  const { allHomeProjects } = await fetchCMSApi(`{
     allHomeProjects {
+      idDoProjeto
+    }
+  }
+  `)
+
+  const idsProjects = allHomeProjects.map(idProject => {
+    return idProject.idDoProjeto
+  })
+
+  const data = await fetchCMSApi(`
+  {
+    allProjects(filter: {id: {in: [${idsProjects}]}}) {
       id
       _firstPublishedAt
       title
@@ -41,13 +52,17 @@ export async function getHomeProjects() {
       description
       code
       createdAt
-      
+      video {
+        url
+        provider
+        providerUid
+        thumbnailUrl
+      }
     }
-  }
-  
+  }  
   `)
 
-  return data.allHomeProjects
+  return data.allProjects
 }
 
 
@@ -84,7 +99,7 @@ export async function getProjects() {
 
 export async function getSkills() {
   const data = await fetchCMSApi(`{
-    allSkills {
+    allSkills(orderBy: _createdAt_ASC) {
       id
       name
       image {
@@ -122,8 +137,6 @@ export async function getProject( id ) {
       }
     }
   }`)
-
-  // console.log( data )
 
   return data.project
 }

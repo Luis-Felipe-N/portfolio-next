@@ -19,6 +19,8 @@ const typeThumb =[
     },
 ]
 
+ReactModal.setAppElement("#__next")
+
 
 export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
     const [ project, setProject ] = useState()
@@ -27,6 +29,7 @@ export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
 
     useEffect(() => {
         const requestProject = async () => {
+            console.log(idProject)
             const data = await getProject( idProject ) 
             setProject( data)
             setLoading(false)

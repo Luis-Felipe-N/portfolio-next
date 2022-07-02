@@ -2,7 +2,7 @@ import Router from 'next/router'
 import { useEffect } from 'react'
 import { Card } from '../components/Card'
 import { Skill } from '../components/Skills'
-import { getHomeProjects, getSkills } from '../lib/datoCMS'
+import { getHomeProjects, getProject, getSkills } from '../lib/datoCMS'
 import styles from '../styles/pages/home.module.scss'
 import Head from 'next/head'
 import AnimationUp from '../components/AnimationUp'
@@ -76,12 +76,10 @@ export const getStaticProps = async () => {
 		}
 	})
 
-	const IDs = [53401117, 53402422, 53400747] // Esses ids é tempórarios. Arrumar o bug quando tiver tempo!
-
     const parsedProjects = await getHomeProjects()
     const projects = parsedProjects.map( (project, index) => {
         return {
-            id: IDs[index],
+			id: project.id,
             code: project.code,
             preview: project.preview,
             createdAt: project.createdAt,
@@ -90,10 +88,12 @@ export const getStaticProps = async () => {
             thumb: {
                 url: project.thumb.url
             },
-			languages: project.languages.split(' ')
+            languages: project.languages.split(' '),
+            video: project.video
         }
     })
 
+	console.log(projects)
 
     return {
         props: {
