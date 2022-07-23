@@ -1,15 +1,19 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Card } from "../components/Card"
 import { useChangeColor } from '../hooks/useChangeColor'
 import { getProjects, getSkills } from "../lib/datoCMS"
 
 import styles from '../styles/pages/projects.module.scss'
 
-
 export default function Projetos({datoProjects, skills}) {
     const [projects, setProjects] = useState(datoProjects)
     const [skillProjectActive, setSkillProjectActive] = useState('all')
+    const [isMouseDown, setIsMouseDown] = useState(false)
+    const [startX, setStartX] = useState()
+    const [scrollLeft, setScrollLeft] = useState()
+
+    const slider = useRef()
 
     function handleChangeFilterProjectsBySkill(skill) {
         if (skill !== 'all') {
@@ -21,6 +25,31 @@ export default function Projetos({datoProjects, skills}) {
             setSkillProjectActive('all')
         }
     }
+
+    const handleMoveDown = (e) => {
+        console.log(e)
+        if (e.type === "touchstart") {
+            console.log(e.changedTouches[0].pageX)
+            setStartX(e.changedTouches[0].pageX - slider.current.offsetLeft)
+        } else {
+            e.preventDefault(); 
+            setStartX(e.pageX - slider.current.offsetLeft)
+        }
+        setIsMouseDown(true)
+        setScrollLeft(slider.current.scrollLeft)
+    }
+    
+    const handleMouseMove = (e) => {
+        if(!isMouseDown) return;
+        let move;
+        if(e.type === "touchmove") {
+            move = (e.changedTouches[0].pageX - slider.current.offsetLeft) - startX
+        }  else {
+            move = (e.pageX - slider.current.offsetLeft) - startX
+        }
+        slider.current.scrollLeft = scrollLeft - move
+        console.log(move, slider.current.offsetLeft, startX)
+    }
    
     return (
         <>
@@ -31,7 +60,18 @@ export default function Projetos({datoProjects, skills}) {
         </Head>
         <main className={styles.projectContainer}>
             <div className={styles.skillsContainer}>
-            <ul>
+            <ul
+                ref={slider}
+                onMouseLeave={( ) => setIsMouseDown(false)}
+                onMouseUp={( ) => setIsMouseDown(false)}
+                onMouseDown={handleMoveDown}
+                onMouseMove={handleMouseMove}
+                onTouchCancel={( ) => setIsMouseDown(false)}
+                onTouchEnd={( ) => setIsMouseDown(false)}
+                onTouchStart={handleMoveDown}
+                onTouchMove={handleMouseMove}
+                className={isMouseDown ? styles.active : ''}
+            >
                 <li
                     className={skillProjectActive === 'all' ? styles.active : ''}
                     onClick={() => handleChangeFilterProjectsBySkill('all')}
