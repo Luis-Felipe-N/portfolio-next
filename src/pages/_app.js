@@ -2,6 +2,8 @@ import '../styles/global.scss'
 import { Header } from '../components/Header'
 import Footer from '../components/Footer'
 import { NextSeo } from 'next-seo'
+import { useChangeColor } from '../hooks/useChangeColor'
+import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps }) {
   console.log(`
@@ -33,6 +35,16 @@ function MyApp({ Component, pageProps }) {
   ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
   Seu Impostooooroooooooor!!!!!
   `)
+
+  const { changeColor } = useChangeColor()
+
+	useEffect(() => {
+		const bodyHaveTheme = document.body.className.includes('theme')
+        
+        if ( !bodyHaveTheme ) {
+            changeColor()
+        }
+	}, [changeColor])
 
   return (
     <>

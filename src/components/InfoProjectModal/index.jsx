@@ -25,7 +25,9 @@ ReactModal.setAppElement("#__next")
 export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
     const [ project, setProject ] = useState()
     const [ loading, setLoading ] = useState(true)
-    const [ CurrentViewThumb, setCurrentViewThumb ] = useState(0)
+    // const [ CurrentViewThumb, setCurrentViewThumb ] = useState(0)
+
+    console.log(project)
 
     useEffect(() => {
         const requestProject = async () => {
