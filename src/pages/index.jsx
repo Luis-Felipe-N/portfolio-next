@@ -9,6 +9,10 @@ import AnimationUp from '../components/AnimationUp'
 
 export default function Home({projects, skills}) {
 
+	const style = {
+		"--skills": skills.length
+	}
+
 	return (
 		<>
 			<Head>
@@ -28,10 +32,24 @@ export default function Home({projects, skills}) {
 
 					</section>
 				</AnimationUp>
-				<section className={styles.skills}>
+				<section className={styles.skillsContainer} style={style}>
+					<ul className={styles.skills}>
 					{
-						skills && skills.map( skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+						skills && (
+							skills.map(skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+						)
 					}
+					{
+						skills && (
+							skills.map(skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+						)
+					}
+					{
+						skills && (
+							skills.map(skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+						)
+					}
+					</ul>
 				</section>
 				<AnimationUp>
 				<section className={styles.cards}>

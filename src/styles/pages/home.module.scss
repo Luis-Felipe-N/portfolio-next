@@ -1,7 +1,5 @@
 .homeContainer {
-    max-width: 1200px;
-    margin: auto;
-    padding: 2rem 5%;
+    --skill-width: 130px;
     
     section {
         padding: 2rem 0;
@@ -14,7 +12,9 @@
     }
 
     .hero {
-        margin: 2rem 0;
+        max-width: 1200px;
+        padding: 2rem 5%;
+        margin: 2rem auto;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -56,16 +56,23 @@
 
     }
 
+    .skillsContainer {
+        overflow: hidden;
+        // background-color: green;
+    }
+
     .skills {
-        width: 100%;
+        width: calc(var(--skill-width) * var(--skills) * 2);
+        // overflow: hidden;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: .7rem;
+        // gap: .7rem;
+        animation: carroselSkills 10s linear infinite;
     }
 
     .cards {
-        margin-top: 3rem;
+        max-width: 1200px;
+        margin: 3rem auto 0;
+        padding: 2rem 5%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -92,17 +99,6 @@
 
 }
 
-// .ligth_mode {
-//     .homeContainer {
-//         .hero {
-//             align-items: flex-start;
-//             &_image {
-//                 background-color: aquamarine !important;
-//             }
-//         }
-//     }
-// }
-
 @media (max-width:800px) {
     .homeContainer {
         .hero {
@@ -123,3 +119,10 @@
     }
 }
 
+@keyframes carroselSkills {
+    0% {
+        transform: translateX(0);
+    } 100% {
+        transform: translateX(calc(-1 * var(--skill-width) * var(--skills)))
+    }
+}
