@@ -1,8 +1,10 @@
+import { EventHandler } from 'react'
+
 export function useClickOutSide() {
-    function clickOutSide(element, state, setState) {
+    function clickOutSide(element: HTMLElement, state: boolean, setState: (state: boolean) => void) {
         document.addEventListener('click', handleClickOutSide)
 
-        function handleClickOutSide( event ) {
+        function handleClickOutSide( event: any ) {
             if (!element.contains(event.target)) {
                 document.removeEventListener('click', handleClickOutSide)
                 setState(!state)

@@ -1,7 +1,12 @@
 import Image from 'next/image'
 import styles from './styles.module.scss'
 
-export function Skill({image, name}) {
+interface ISkill {
+    image: string;
+    name: string;
+}
+
+export function Skill({image, name}: ISkill) {
     return (
         <li title={'Tecnologia ' + name} className={styles.skillContainer}>
             <Image

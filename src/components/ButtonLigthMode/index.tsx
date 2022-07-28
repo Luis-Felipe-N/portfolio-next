@@ -24,7 +24,7 @@ export function ButtonLigthMode({...props}) {
 
     const handleSetDarkMode = () => {
         document.body.classList.remove('ligth-mode')
-        localStorage.removeItem('ligthMode', 'true')
+        localStorage.removeItem('ligthMode')
         setLigthMode(false)
     }
 

@@ -1,7 +1,11 @@
-import { useEffect, useRef } from "react"
+import { ReactNode, useEffect, useRef } from "react"
 
-export default function AnimationUp({children}) {
-    const containerAnimation = useRef()
+interface AnimationUp {
+    children: ReactNode
+}
+
+export default function AnimationUp({children}: AnimationUp) {
+    const containerAnimation = useRef<HTMLDivElement>(null)
 
     const animaScroll = () => {
        if (containerAnimation.current) {

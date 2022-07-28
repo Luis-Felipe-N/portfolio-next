@@ -4,8 +4,9 @@ import Footer from '../components/Footer'
 import { NextSeo } from 'next-seo'
 import { useChangeColor } from '../hooks/useChangeColor'
 import { useEffect } from 'react'
+import { AppProps } from 'next/dist/shared/lib/router/router'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   console.log(`
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣴⣆⣠⣤⠀⠀⠀⠀⠀⠀⠀
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣯⣘⠹⣧⣤⡀⠀⠀⠀⠀⠀
@@ -57,7 +58,6 @@ function MyApp({ Component, pageProps }) {
             title: 'Portfólio Luis Felipe',
             description: 'Meu Nome é Luis Felipe, Desenvolvedor Front-End e atualmente cursando Ciências da Computação. Dezoito anos.',
             locale: 'PT_BR',
-            canonical: 'https://luisnunes.me',
             images: [
             {
                 url: '/logo.png',

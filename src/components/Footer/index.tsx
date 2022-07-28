@@ -39,11 +39,11 @@ export default function Footer() {
                                 <FaLinkedin size={'1.5rem'}/>
                             </a>
                         </li>
-                        <li>
+                        {/* <li>
                             <a title='Instagram' target="_blank" rel="noreferrer" href="https://www.instagram.com/luis_felipenc17/">
                                 <FaInstagram size={'1.5rem'}/>
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
                             ) : (
                                 <span className={styles.indisponivel}>Indisponível </span>
                             ) }
-                         para projetos
+                         para freelancers
                     </h2>
                 </div>
         </footer>

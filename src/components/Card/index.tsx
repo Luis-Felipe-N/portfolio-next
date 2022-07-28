@@ -1,15 +1,16 @@
 import styles from './styles.module.scss'
 import Image from 'next/image'
-import Link from 'next/link'
 
-import { Tag } from '../Tag'
-
-import {BiCodeAlt, BiLink} from 'react-icons/bi'
 import AnimationUp from '../AnimationUp'
 import { InfoProjectModal } from '../InfoProjectModal'
 import { useState } from 'react'
+import { IProject } from '../../types/Projects'
 
-export function Card({project}) {
+interface ICard {
+    project: IProject
+}
+
+export function Card({project}: ICard) {
     const [ infoProjectModalIsOpen, setInfoProjectModalIsOpen ] = useState(false)
 
     function handleOpenModal() {

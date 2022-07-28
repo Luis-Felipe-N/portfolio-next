@@ -18,9 +18,10 @@
         justify-content: space-between;
 
         .logo {
-            font-size: 0;
             img {
-                width: 130px;
+                max-height: 40px;
+                height: 100%;
+
             }
         }
 

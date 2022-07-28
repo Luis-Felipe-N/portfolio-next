@@ -6,12 +6,16 @@ import { getHomeProjects, getProject, getSkills } from '../lib/datoCMS'
 import styles from '../styles/pages/home.module.scss'
 import Head from 'next/head'
 import AnimationUp from '../components/AnimationUp'
+import { ISkill } from '../types/Skills'
+import { IProject } from '../types/Projects'
 
-export default function Home({projects, skills}) {
 
-	const style = {
-		"--skills": skills.length
-	}
+interface IHomeProps {
+	projects: IProject[];
+	skills: ISkill[]
+}
+
+export default function Home({projects, skills}: IHomeProps) {
 
 	return (
 		<>
@@ -32,21 +36,21 @@ export default function Home({projects, skills}) {
 
 					</section>
 				</AnimationUp>
-				<section className={styles.skillsContainer} style={style}>
+				<section className={styles.skillsContainer}>
 					<ul className={styles.skills}>
 					{
 						skills && (
-							skills.map(skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+							skills.map(skill => <Skill key={skill.id} image={skill.image.url} name={skill.name} />)
 						)
 					}
 					{
 						skills && (
-							skills.map(skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+							skills.map(skill => <Skill key={skill.id} image={skill.image.url} name={skill.name} />)
 						)
 					}
 					{
 						skills && (
-							skills.map(skill => <Skill key={skill.id} image={skill.image} name={skill.name} />)
+							skills.map(skill => <Skill key={skill.id} image={skill.image.url} name={skill.name} />)
 						)
 					}
 					</ul>
@@ -76,7 +80,9 @@ export const getStaticProps = async () => {
 		return {
 			id: skill.id,
 			name: skill.name,
-			image: skill.image.url
+			image: {
+				url: skill.image.url
+			}
 		}
 	})
 
@@ -92,7 +98,7 @@ export const getStaticProps = async () => {
             thumb: {
                 url: project.thumb.url
             },
-            languages: project.languages.split(' '),
+            languages: project.languages,
             video: project.video
         }
     })

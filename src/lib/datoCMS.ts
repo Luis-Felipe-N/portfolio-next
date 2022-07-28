@@ -1,17 +1,20 @@
+import { IProject } from "../types/Projects"
+import { ISkill } from "../types/Skills"
+
 const endPointer = "https://graphql.datocms.com/"
 
-
-const fetchCMSApi = async (query, { variables } = {}) => {
+const fetchCMSApi = async (query: string) => {
     const response = await fetch(endPointer, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            authorization: process.env.NEXT_PUBLIC_API_KEY
+            authorization: process.env.NEXT_PUBLIC_API_KEY!
         },
         body:  JSON.stringify({
             query: query,
-            variables: variables
+            variables: {}
         })
+        
     })
     
     const json = await response.json()
@@ -24,7 +27,7 @@ const fetchCMSApi = async (query, { variables } = {}) => {
 }
 
 
-export async function getHomeProjects(IDs) {  
+export async function getHomeProjects(): Promise<IProject[]> {  
   const { allHomeProjects } = await fetchCMSApi(`{
     allHomeProjects {
       idDoProjeto
@@ -32,8 +35,8 @@ export async function getHomeProjects(IDs) {
   }
   `)
 
-  const idsProjects = allHomeProjects.map(idProject => {
-    return idProject.idDoProjeto
+  const idsProjects = allHomeProjects.map((project: {idDoProjeto: number}) => {
+    return project.idDoProjeto
   })
 
   const data = await fetchCMSApi(`
@@ -66,7 +69,7 @@ export async function getHomeProjects(IDs) {
 }
 
 
-export async function getProjects() {
+export async function getProjects(): Promise<IProject[]> {
   
   const data = await fetchCMSApi(`
     {
@@ -97,7 +100,7 @@ export async function getProjects() {
     return data.allProjects
 }
 
-export async function getSkills() {
+export async function getSkills(): Promise<ISkill[]> {
   const data = await fetchCMSApi(`{
     allSkills(orderBy: _createdAt_ASC) {
       id
@@ -111,7 +114,7 @@ export async function getSkills() {
   return data.allSkills
 }
 
-export async function getProject( id ) {
+export async function getProject( id: string ) {
   const data = await fetchCMSApi(`{
     project(filter: {id: {eq: "${id}"}}) {
       id
