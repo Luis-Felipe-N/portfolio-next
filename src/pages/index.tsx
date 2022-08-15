@@ -1,5 +1,4 @@
 import Router from 'next/router'
-import { useEffect } from 'react'
 import { Card } from '../components/Card'
 import { Skill } from '../components/Skills'
 import { getHomeProjects, getProject, getSkills } from '../lib/datoCMS'

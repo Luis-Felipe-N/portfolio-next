@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './styles.module.scss'
 
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 
 export default function Footer() {
     const [ disponivel, setDisponivel ] = useState(true)
@@ -39,11 +39,11 @@ export default function Footer() {
                                 <FaLinkedin size={'1.5rem'}/>
                             </a>
                         </li>
-                        {/* <li>
-                            <a title='Instagram' target="_blank" rel="noreferrer" href="https://www.instagram.com/luis_felipenc17/">
-                                <FaInstagram size={'1.5rem'}/>
+                        <li>
+                            <a title='Whatsapp' target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=5563992351977&text=Oi, tudo bem?">
+                                <FaWhatsapp size={'1.5rem'}/>
                             </a>
-                        </li> */}
+                        </li>
                     </ul>
                 </div>
 

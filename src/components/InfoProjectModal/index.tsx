@@ -21,13 +21,34 @@ const typeThumb =[
 
 ReactModal.setAppElement("#__next")
 
+interface IInfoProjectModalProps {
+    idProject: string;
+    isOpen: boolean;
+    onRequestClose: () => void
+}
 
-export function InfoProjectModal( {idProject, isOpen, onRequestClose} ) {
-    const [ project, setProject ] = useState()
+interface IProject {
+    id: string,
+    name: string,
+    code: string,
+    preview: string,
+    createdAt: string,
+    description: string,
+    title: string,
+    thumb: {
+        url: string;
+        width: number;
+        height: number;
+    },
+    languages: string,
+    video: {
+        providerUid: string
+    }
+}
+
+export function InfoProjectModal( {idProject, isOpen, onRequestClose}: IInfoProjectModalProps ) {
+    const [ project, setProject ] = useState<IProject>()
     const [ loading, setLoading ] = useState(true)
-    // const [ CurrentViewThumb, setCurrentViewThumb ] = useState(0)
-
-    console.log(project)
 
     useEffect(() => {
         const requestProject = async () => {

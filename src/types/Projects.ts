@@ -6,8 +6,12 @@ export interface IProject {
     description: string,
     title: string,
     thumb: {
-        url: string
+        url: string;
+        width?: number;
+        height?: number;
     },
     languages: string[],
-    video: string | null
+    video: {
+        providerUid: string
+    } | null
 }
