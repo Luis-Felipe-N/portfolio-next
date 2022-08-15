@@ -27,17 +27,17 @@ const colors = [
 
 export function SiteConfig() {
     const [ openModal, setOpenModal ] = useState(false)
-    const siteConfigRef = useRef()
+    const siteConfigRef = useRef<HTMLDivElement>(null)
 
     const { changeColor } = useChangeColor()
     const { clickOutSide } = useClickOutSide()
 
-    const handleChangeColor = ( theme ) => {
-        changeColor(theme)
+    const handleChangeColor = ( themeId: number ) => {
+        changeColor(themeId)
     }
 
     useEffect(() => {
-        if ( openModal ) {
+        if ( openModal && siteConfigRef.current ) {
             clickOutSide( siteConfigRef.current, openModal, setOpenModal )
         }
     }, [openModal, clickOutSide])
@@ -51,7 +51,7 @@ export function SiteConfig() {
             >
                 <BsGear size="22px" />
             </button>
-            <div ref={siteConfigRef} className={openModal && styles.active }>
+            <div ref={siteConfigRef} className={openModal ? styles.active : '' }>
                 <div>
                     <h4>Cores</h4>
                     <ul>

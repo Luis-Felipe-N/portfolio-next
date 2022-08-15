@@ -1,6 +1,10 @@
 import styles from './styles.module.scss'
 
-export function Tag( {language} ) {
+interface ITagProps {
+    language: string
+}
+
+export function Tag( {language}: ITagProps ) {
     return (
         <span className={styles.tagContainer}>{ language.replace('#', '') }</span>
     )

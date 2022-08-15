@@ -1,14 +1,20 @@
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
-// import styles from '../Header/styles.module.scss'
+import { ReactNode } from 'react'
 
-export default function NavLink({children, to, ...props}) {
+
+interface INavLinkProps {
+    children: ReactNode;
+    className: string;
+    to: string
+}
+
+export default function NavLink({children, to, className, ...props}: INavLinkProps) {
 
     const {asPath} = useRouter()
-    const className = asPath == to ? styles.active : ''
     
     return (
-        <Link  className={className} href={to}>
+        <Link  className={asPath == to ? className : ''} href={to}>
             <a {...props}>
                 {children}
             </a>
