@@ -12,7 +12,8 @@ const fetchCMSApi = async (query: string) => {
         },
         body:  JSON.stringify({
             query: query,
-            variables: {}
+            variables: {},
+
         })
         
     })
@@ -73,7 +74,7 @@ export async function getProjects(): Promise<IProject[]> {
   
   const data = await fetchCMSApi(`
     {
-      allProjects(orderBy: _createdAt_DESC) {
+      allProjects(orderBy: _createdAt_DESC, first: "100") {
         id
         _firstPublishedAt
         title

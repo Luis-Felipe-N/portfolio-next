@@ -9,6 +9,8 @@ import AnimationUp from '../components/AnimationUp'
 import { ISkill } from '../types/Skills'
 import { IProject } from '../types/Projects'
 
+import { BsArrowRight } from 'react-icons/bs'
+
 
 interface IHomeProps {
 	projects: IProject[];
@@ -30,8 +32,17 @@ export default function Home({projects, skills}: IHomeProps) {
 						
 						<div>
 							<h1>Luis Felipe</h1>
-							<p>Desenvolvedor Front-End <br/> Cursando Ciências da Computação (2/8) na <a className={styles.link} href="https://ww2.uft.edu.br/">UFT</a>.</p>
-							<a className={styles.download} href="/assets/Curriculo.pdf" download="Curriculo-Luis">Currículo</a>
+							<p>Desenvolvedor Front-End <br/> Cursando Ciências da Computação (3/8) na <a className={styles.link} href="https://ww2.uft.edu.br/">UFT</a>.</p>
+							<div>
+								<a className={styles.download} href="/assets/Curriculo.pdf" download="Curriculo-Luis">Currículo</a>
+								<a 
+									className={styles.whats} 
+									href="https://api.whatsapp.com/send?phone=5563992351977&text=Oi, tudo bem?"
+									target="_blank" 
+									rel="noopener noreferrer"
+								>
+									Whatsapp <BsArrowRight /></a>
+							</div>
 						</div>
 
 					</section>
