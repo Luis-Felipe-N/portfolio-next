@@ -10,7 +10,7 @@ export interface IProject {
         width?: number;
         height?: number;
     },
-    languages: string[],
+    languages: string[] | string,
     video: {
         providerUid: string
     } | null
