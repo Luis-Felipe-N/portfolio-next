@@ -92,7 +92,7 @@ export function InfoProjectModal( {idProject, isOpen, onRequestClose}: IInfoProj
                                     src={project.thumb.url}
                                     width={project.thumb.width}
                                     height={project.thumb.height}
-                                    alt="fsfd"
+                                    alt=""
                                     />
                             </div>
                         ) : (
