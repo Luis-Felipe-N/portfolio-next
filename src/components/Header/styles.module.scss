@@ -121,11 +121,11 @@
                 .maker {
                     display: none;
                 }
+                &.active {
+                    right: 0;
+                }
             }
 
-            nav.active {
-                right: 0;
-            }
 
             .btn_mobile {
                 margin-left: 1rem;

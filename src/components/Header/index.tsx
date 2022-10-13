@@ -36,11 +36,6 @@ export function Header() {
         }
     }, [router])
 
-    useEffect(() => {
-        if ( openMenu && menuRef.current ) {
-            clickOutSide( menuRef.current, openMenu, setOpenMenu )
-        }
-    }, [openMenu, clickOutSide])
 
     return (
         <header className={styles.headerContainer}>
@@ -89,9 +84,9 @@ export function Header() {
                     className={styles.btn_mobile}>
                     {
                         openMenu ? (
-                            <>Fechar<BiFolderOpen size="1.5rem" /></>
+                            <>Fechar<BiFolderOpen size={20} /></>
                         ) : (
-                            <>Abrir<BiFolder size="1.5rem" /></>
+                            <>Abrir<BiFolder size={20} /></>
                         )
                     }
                 </button>

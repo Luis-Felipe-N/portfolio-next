@@ -36,11 +36,6 @@ export function SiteConfig() {
         changeColor(themeId)
     }
 
-    useEffect(() => {
-        if ( openModal && siteConfigRef.current ) {
-            clickOutSide( siteConfigRef.current, openModal, setOpenModal )
-        }
-    }, [openModal, clickOutSide])
 
     return (
         <div className={styles.siteConfigContainer}>

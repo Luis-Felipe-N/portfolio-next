@@ -23,6 +23,7 @@ export function ButtonLigthMode({...props}) {
     }
 
     const handleSetDarkMode = () => {
+        console.log('Ajustando')
         document.body.classList.remove('ligth-mode')
         localStorage.removeItem('ligthMode')
         setLigthMode(false)
@@ -37,7 +38,7 @@ export function ButtonLigthMode({...props}) {
                     className={styles.ligth_mode}
                     onClick={handleSetDarkMode}
                 >
-                    <BiMoon size='1.4rem' />
+                    <BiMoon size={20} />
                 </button>
             ) : (
                 <button
@@ -45,7 +46,7 @@ export function ButtonLigthMode({...props}) {
                     className={styles.ligth_mode}
                     onClick={ handleSetLigthMode}
                 >
-                    <BiSun size='1.4rem' />
+                    <BiSun size={20} />
                 </button>
             )
         }

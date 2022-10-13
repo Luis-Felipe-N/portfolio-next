@@ -31,17 +31,17 @@ export default function Footer() {
                     <ul className={styles.redesSocias}>
                         <li>
                             <a title="Github" target="_blank" rel="noreferrer" href="https://github.com/Luis-Felipe-N">
-                                <FaGithub size={'1.5rem'}/>
+                                <FaGithub size={20}/>
                             </a>
                         </li>
                         <li>
                             <a title='Linkedin' target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/luis-felipe-nunes-de-carvalho-02055b207/">
-                                <FaLinkedin size={'1.5rem'}/>
+                                <FaLinkedin size={20}/>
                             </a>
                         </li>
                         <li>
                             <a title='Whatsapp' target="_blank" rel="noreferrer" href="https://api.whatsapp.com/send?phone=5563992351977&text=Oi, tudo bem?">
-                                <FaWhatsapp size={'1.5rem'}/>
+                                <FaWhatsapp size={20}/>
                             </a>
                         </li>
                     </ul>

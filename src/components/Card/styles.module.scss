@@ -15,6 +15,11 @@
         flex-direction: column;
         justify-content: space-between;
 
+        a {
+            text-decoration: underline;
+            font-weight: 500;
+            color: var(--color-200);
+        }
         
         h2 {
             color: var(--color-150);
@@ -33,11 +38,7 @@
             -webkit-box-orient: vertical;  
             overflow: hidden; 
 
-            a {
-                text-decoration: underline;
-                font-weight: 500;
-                color: var(--color-200);
-            }
+            
         }
 
         button {
