@@ -11,7 +11,7 @@ export function Loading() {
                 <li className={styled.loading__dots_4}></li>
                 <li className={styled.loading__dots_5}></li>
             </ul>
-            <h3>Calma ae, mané!</h3>
+            <h3>Carregando</h3>
         </div>
     )
 }
